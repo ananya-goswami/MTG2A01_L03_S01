@@ -15,7 +15,7 @@
      file:// a preload of a fetch() fails, and local files need no head start. -->
 <script>(function(){ if(!/^https?:$/.test(location.protocol)) return;
   [["assets/fonts/baloo2-800.woff2", "font", "font/woff2"], ["assets/gif/new_landing_swiftee_anim.webp", "fetch"],
-   ["assets/startnew_bg_plain.webp", "image"], ["assets/background_1st_screen.webp", "image"], ["assets/pv_rod.webp", "image"]
+   ["assets/startnew_bg_plain.webp", "image"], ["assets/bg_landing_soft2.webp", "image"], ["assets/pv_rod.webp", "image"]
   ].forEach(function(f){ var l = document.createElement("link"); l.rel = "preload"; l.href = f[0]; l.as = f[1];
     if(f[2]) l.type = f[2]; if(f[1] !== "image") l.crossOrigin = "anonymous"; document.head.appendChild(l); });
 })();</script>
@@ -164,9 +164,10 @@
   "a": 23,
   "b": 12,
   "people": [
-   "tara",
-   "kabir"
-  ]
+   "aaru",
+   "pari"
+  ],
+  "title_look": "wall"
  },
  "skill_description_hi": "दो अंकों वाली दो संख्याओं को (बिना हासिल के) क्षैतिज रूप में जोड़ता है।",
  "phase_distribution": {
@@ -291,12 +292,10 @@
     "b": 12,
     "people": [
      {
-      "who": "tara",
-      "name": "तारा"
+      "who": "pari"
      },
      {
-      "who": "kabir",
-      "name": "कबीर"
+      "who": "aaru"
      }
     ]
    }
@@ -348,20 +347,17 @@
     "b": 12,
     "people": [
      {
-      "who": "tara",
-      "name": "तारा"
+      "who": "pari"
      },
      {
-      "who": "kabir",
-      "name": "कबीर"
+      "who": "aaru"
      }
     ],
     "total": {
      "who": [
-      "tara",
-      "kabir"
-     ],
-     "name": "कुल"
+      "pari",
+      "aaru"
+     ]
     }
    }
   },
@@ -383,12 +379,10 @@
     "b": 52,
     "people": [
      {
-      "who": "tara",
-      "name": "तारा"
+      "who": "pari"
      },
      {
-      "who": "maa",
-      "name": "माँ"
+      "who": "amma"
      }
     ]
    }
@@ -438,17 +432,14 @@
     "b": 52,
     "people": [
      {
-      "who": "tara",
-      "name": "तारा"
+      "who": "pari"
      },
      {
-      "who": "maa",
-      "name": "माँ"
+      "who": "amma"
      }
     ],
     "total": {
-     "who": "tara",
-     "name": "तारा"
+     "who": "pari"
     }
    }
   },

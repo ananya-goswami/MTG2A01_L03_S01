@@ -19,11 +19,11 @@ kit; `card.json` by `../pv-addition-kit/lessons.py`. Edit there, then rebuild (s
 ## The lesson, page by page
 | slide | deck page | kind | what happens |
 |---|---|---|---|
-| landing | 1 | — | Title "संख्याओं की जोड़"; Tara and Kabir with their blocks and "23 + 12 = ?" come in with the greeting; VO "नमस्ते दोस्त! मैं हूँ स्विफ्टी! आज हम संख्याओं को जोड़ना सीखेंगे।" |
-| T1 | 2 | STORY ask | "कुल कितने ब्लॉक्स ?" Tara (23 = 2 rods + 3 cubes) and Kabir (12); the equation completes in sync with the VO, ending "= ?" |
+| landing | 1 | — | Title "संख्याओं की जोड़"; Pari and Aaru with their blocks and "23 + 12 = ?" come in with the greeting; VO "नमस्ते दोस्त! मैं हूँ स्विफ्टी! आज हम संख्याओं को जोड़ना सीखेंगे।" |
+| T1 | 2 | STORY ask | "कुल कितने ब्लॉक्स ?" Pari (23 = 2 rods + 3 cubes) and Aaru (12); the equation completes in sync with the VO, ending "= ?" |
 | T2 | 3 | PV_DEMO | "आइए, 23 और 12 को जोड़ते हैं।" 23's table appears, its digits light with their columns; Swifty's hand taps दहाई + twice, इकाई + three times. 12: the child builds it (each + pulses until its count is in, then switches off). The sum table appears; the child taps the ones across (each leaves a grey copy), then the tens; "3 दहाई और 5 इकाई, यानी 35" lights rods, cubes, the column digits and "= 35"; the sum table rises to the middle; confetti, "शाबाश! 23 और 12 को जोड़ने पर 35 मिलता है।" |
 | T3 | 3b (new) | STORY sum | Same picture; on "23 जोड़ 12 बराबर 35" every block moves into the third column ("कुल") and the "?" becomes 35 |
-| T4 | 4a | STORY ask | "एक और उदाहरण देखते हैं।" Tara 34, Maa gives 52 |
+| T4 | 4a | STORY ask | "एक और उदाहरण देखते हैं।" Pari 34, Amma gives 52 |
 | T5 | 4b | PV_DEMO | The child builds 34 and 52 themselves, then adds as in T2 |
 | T6 | 5 | STORY sum | 34 + 52 = 86 |
 | G1–G3 | 6, 7, 8 | PV_MERGE_MCQ | "संख्याएँ जोड़िए।" 43+24 / 30+25 / 62+20: both tables built block by block, an empty sum table; the child taps every block across (any order; idle 7s - they pulse + the hand); the sum table moves to the centre; three answers (the deck's: 76 47 67 / 55 50 65 / 72 82 80) |
@@ -45,20 +45,33 @@ Pages 13, 14, 15: deleted (deck).
 - Page 10's hint says "कुल 4 दहाइयाँ और 0 इकाई" for 40 + 30 - it is "कुल 7 दहाइयाँ और 0 इकाई हैं।"
 - Page 4b gives no heading; it shows "आइए, 34 और 52 को जोड़ते हैं।" (text only, as T2's pattern).
 
+### Cast (changed from the deck, 2026-10-12)
+The deck's Tara / Kabir / Maa are not in the Village world the games' art comes from; at the user's request they are
+recast as its Pari / Aaru / Amma (S02's cast): तारा → परी, कबीर → आरु, माँ → अम्मा in every line, the deck's words otherwise
+unchanged. The 8 clips that say a name were re-recorded in the same voice (`vo_t1_intro`, `vo_t1_a`, `vo_t1_b`,
+`vo_t3_total`, `vo_t4_a`, `vo_t4_b`, `vo_t4_ask`, `vo_t6_total`).
+
 ## Assets
 - **Blocks:** `pv_rod.webp` (the green ten) and `pv_cube.webp` (the orange one) - cut from the deck's own art.
-- **People:** `char_tara.svg`, `char_kabir.svg`, `char_maa.svg` - flat portraits drawn by `tools/make_avatars.py` (the deck asks for "Tara's photo" etc.; no character art was supplied). Replace with supplied art at the same path any time.
+- **People:** Pari, Aaru and Amma - the Village world's character art (Drive "Village Design_Final/Characters" and
+  "Village World Chronicles.pdf"), made by `../pv-addition-kit/make_characters.py`, the same files as S02's:
+  `char_pari.webp` / `char_aaru.webp` / `char_amma.webp` - round portraits for the story pages,
+  `char_pari_full.webp` / `char_aaru_full.webp` - the whole waving figures on the first screen. Every supplied Aaru carries
+  a bundle of sticks; his waving pose has them retouched away (`../pv-addition-kit/art_src/remove_sticks.py`).
 - **Shell (from MTG2A04_L02_S01):** fonts, Swiftie (`assets/gif/`, `sw_head_*`, `mascot`, `start_mascot`, `last_swifty_*`), landing card art, buttons, nudge hand + its tap ripple, `end_screen.webp`, `assets/sfx/*`, the phase-gate VO `vo_pt_*`, `vo_hint_tap`, `sfx_celebrate`.
 - **VO:** 69 new clips, see `VO_MANIFEST.md`. Every file in `assets/` is used; `tools/gen_asset_sizes.js` lists them all for preloading.
 
 ## Rebuilding
 ```
-python ../pv-addition-kit/lessons.py        # card.json + tools/vo_script.json (both games)
-python tools/build_vo.py                     # renders any VO line not yet on disk (edge-tts; internet)
-python tools/make_avatars.py                 # the people
-python ../pv-addition-kit/assemble.py        # app.js / style.css / index.html (both games)
-node tools/gen_asset_sizes.js                # the preload manifest - after ANY asset change
+python ../pv-addition-kit/lessons.py          # card.json + tools/vo_script.json (both games)
+python tools/build_vo.py                       # renders any VO line not yet on disk (edge-tts; internet)
+python ../pv-addition-kit/make_characters.py   # the people (both games)
+python ../pv-addition-kit/embed_card.py        # card.json -> index.html (both games)
+node tools/gen_asset_sizes.js                  # the preload manifest - after ANY asset change
 ```
+`../pv-addition-kit/assemble.py` (app.js / style.css / index.html from MTG2A04's engine) is stale since MTG2A04's
+2026-10-08 changes - don't run it until it is made anchor-based; a card / VO / art change needs only the steps above.
+
 Dev: `index.html?slide=N` opens slide N directly; `?dev=1` adds the slide navigator.
 
 ## Status: 🧪 for SME review (2026-10-07)

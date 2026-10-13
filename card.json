@@ -16,9 +16,10 @@
   "a": 23,
   "b": 12,
   "people": [
-   "tara",
-   "kabir"
-  ]
+   "aaru",
+   "pari"
+  ],
+  "title_look": "wall"
  },
  "skill_description_hi": "दो अंकों वाली दो संख्याओं को (बिना हासिल के) क्षैतिज रूप में जोड़ता है।",
  "phase_distribution": {
@@ -143,12 +144,10 @@
     "b": 12,
     "people": [
      {
-      "who": "tara",
-      "name": "तारा"
+      "who": "pari"
      },
      {
-      "who": "kabir",
-      "name": "कबीर"
+      "who": "aaru"
      }
     ]
    }
@@ -200,20 +199,17 @@
     "b": 12,
     "people": [
      {
-      "who": "tara",
-      "name": "तारा"
+      "who": "pari"
      },
      {
-      "who": "kabir",
-      "name": "कबीर"
+      "who": "aaru"
      }
     ],
     "total": {
      "who": [
-      "tara",
-      "kabir"
-     ],
-     "name": "कुल"
+      "pari",
+      "aaru"
+     ]
     }
    }
   },
@@ -235,12 +231,10 @@
     "b": 52,
     "people": [
      {
-      "who": "tara",
-      "name": "तारा"
+      "who": "pari"
      },
      {
-      "who": "maa",
-      "name": "माँ"
+      "who": "amma"
      }
     ]
    }
@@ -290,17 +284,14 @@
     "b": 52,
     "people": [
      {
-      "who": "tara",
-      "name": "तारा"
+      "who": "pari"
      },
      {
-      "who": "maa",
-      "name": "माँ"
+      "who": "amma"
      }
     ],
     "total": {
-     "who": "tara",
-     "name": "तारा"
+     "who": "pari"
     }
    }
   },

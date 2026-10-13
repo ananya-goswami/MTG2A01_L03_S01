@@ -43,10 +43,10 @@
 | `vo_pt_guided` | 2.3s | चलिए, साथ में करें! | phase gate → guided | MTG2A04_L02_S01 (same voice) |
 | `vo_pt_practice` | 1.7s | अब आपकी बारी! | phase gate → practice | MTG2A04_L02_S01 (same voice) |
 | `vo_pt_tutorial` | 2.3s | चलिए, शुरू करते हैं! | phase gate → tutorial | MTG2A04_L02_S01 (same voice) |
-| `vo_t1_a` | 2.6s | तारा के पास 23 ब्लॉक्स हैं | T1 a | new - tools/build_vo.py |
+| `vo_t1_a` | 2.5s | परी के पास 23 ब्लॉक्स हैं | T1 a | new - tools/build_vo.py |
 | `vo_t1_ask` | 5.2s | चलिए, पता करते हैं, दोनों के पास मिलाकर कुल कितने ब्लॉक्स हैं? | T1 ask | new - tools/build_vo.py |
-| `vo_t1_b` | 2.9s | और कबीर के पास 12 ब्लॉक्स हैं। | T1 b | new - tools/build_vo.py |
-| `vo_t1_intro` | 3.5s | तारा और कबीर ब्लॉक्स से टॉवर बना रहे हैं। | T1 intro | new - tools/build_vo.py |
+| `vo_t1_b` | 2.8s | और आरु के पास 12 ब्लॉक्स हैं। | T1 b | new - tools/build_vo.py |
+| `vo_t1_intro` | 3.4s | परी और आरु ब्लॉक्स से टॉवर बना रहे हैं। | T1 intro | new - tools/build_vo.py |
 | `vo_t2_a_digits` | 3.0s | 23 में 2 दहाई और 3 इकाई हैं। | T2 a_digits | new - tools/build_vo.py |
 | `vo_t2_a_ones` | 3.2s | अब 3 इकाई के लिए 3 ब्लॉक रखते हैं। | T2 a_ones | new - tools/build_vo.py |
 | `vo_t2_a_tens` | 3.2s | पहले 2 दहाई के लिए 2 बंडल रखते हैं। | T2 a_tens | new - tools/build_vo.py |
@@ -62,10 +62,10 @@
 | `vo_t2_tens_sum` | 4.2s | 2 दहाई और 1 दहाई मिलाकर हुईं, 3 दहाई। | T2 tens_sum | new - tools/build_vo.py |
 | `vo_t2_total` | 5.6s | अब हमारे पास कुल 3 दहाइयाँ और 5 इकाइयाँ हैं, यानी 35 | T2 total | new - tools/build_vo.py |
 | `vo_t3_eq` | 2.8s | 23 जोड़ 12 बराबर 35 | T3 eq | new - tools/build_vo.py |
-| `vo_t3_total` | 4.1s | तारा और कबीर के पास कुल मिलाकर 35 ब्लॉक्स हैं। | T3 total | new - tools/build_vo.py |
-| `vo_t4_a` | 2.7s | तारा के पास 34 ब्लॉक्स हैं। | T4 a | new - tools/build_vo.py |
-| `vo_t4_ask` | 5.2s | चलिए, पता करते हैं, अब तारा के पास कुल कितने ब्लॉक्स हो गए? | T4 ask | new - tools/build_vo.py |
-| `vo_t4_b` | 2.8s | माँ ने उसे 52 ब्लॉक्स और दिए। | T4 b | new - tools/build_vo.py |
+| `vo_t3_total` | 3.9s | परी और आरु के पास कुल मिलाकर 35 ब्लॉक्स हैं। | T3 total | new - tools/build_vo.py |
+| `vo_t4_a` | 2.6s | परी के पास 34 ब्लॉक्स हैं। | T4 a | new - tools/build_vo.py |
+| `vo_t4_ask` | 5.0s | चलिए, पता करते हैं, अब परी के पास कुल कितने ब्लॉक्स हो गए? | T4 ask | new - tools/build_vo.py |
+| `vo_t4_b` | 2.9s | अम्मा ने उसे 52 ब्लॉक्स और दिए। | T4 b | new - tools/build_vo.py |
 | `vo_t4_head` | 3.1s | आइए, एक और उदाहरण देखते हैं। | T4 head | new - tools/build_vo.py |
 | `vo_t5_a_build` | 3.2s | ब्लॉक्स की सहायता से 34 बनाइए। | T5 a_build | new - tools/build_vo.py |
 | `vo_t5_a_digits` | 3.3s | 34 में 3 दहाई और 4 इकाई हैं। | T5 a_digits | new - tools/build_vo.py |
@@ -77,4 +77,4 @@
 | `vo_t5_tens_sum` | 4.4s | 3 दहाई और 5 दहाई मिलाकर हुईं, 8 दहाई। | T5 tens_sum | new - tools/build_vo.py |
 | `vo_t5_total` | 5.4s | अब हमारे पास कुल 8 दहाइयाँ और 6 इकाइयाँ हैं, यानी 86 | T5 total | new - tools/build_vo.py |
 | `vo_t6_eq` | 3.0s | 34 जोड़ 52 बराबर 86 | T6 eq | new - tools/build_vo.py |
-| `vo_t6_total` | 3.7s | तारा के पास अब कुल मिलाकर 86 ब्लॉक्स हैं। | T6 total | new - tools/build_vo.py |
+| `vo_t6_total` | 3.6s | परी के पास अब कुल मिलाकर 86 ब्लॉक्स हैं। | T6 total | new - tools/build_vo.py |
