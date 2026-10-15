@@ -1,6 +1,6 @@
 # VO_MANIFEST — MTG2A01_L03_S01
 
-**74 clips on disk, every one played.** Voice: edge-tts `hi-IN-SwaraNeural` +0% / +0Hz - the voice of MTG2A04_L02_S01 - pauses inside a line pulled in to ~0.4s, x1.028 (atempo), 0.28s lead / 0.36s tail, -18.5 LUFS (two-pass loudnorm), Ogg/Opus 48 kHz mono 32 kbps (`tools/build_vo.py`). Lines: the SME deck verbatim (see README for the corrected copy-paste slips); one clip per distinct line, shared wherever the deck repeats it.
+**73 clips on disk, every one played.** Voice: edge-tts `hi-IN-SwaraNeural` +0% / +0Hz - the voice of MTG2A04_L02_S01 - pauses inside a line pulled in to ~0.4s, x1.028 (atempo), 0.28s lead / 0.36s tail, -18.5 LUFS (two-pass loudnorm), Ogg/Opus 48 kHz mono 32 kbps (`tools/build_vo.py`). Lines: the SME deck verbatim (see README for the corrected copy-paste slips); one clip per distinct line, shared wherever the deck repeats it.
 
 | clip | length | line | plays at | from |
 |---|--:|---|---|---|
@@ -21,11 +21,9 @@
 | `vo_g3_hint_a` | 3.2s | ध्यान से देखिए, कुल 8 दहाइयाँ | G3 hint_a | new - tools/build_vo.py |
 | `vo_g3_hint_b` | 1.9s | और 2 इकाइयाँ हैं। | G3 hint_b | new - tools/build_vo.py |
 | `vo_g3_prompt` | 2.5s | 62 और 20 को जोड़िए। | G3 prompt | new - tools/build_vo.py |
-| `vo_hint_tap` | 5.0s | देखिए, सही उत्तर यह है। इस पर टैप कीजिए। | G1 nudge; G2 nudge; G3 nudge; P3 nudge; P4 nudge | MTG2A04_L02_S01 (same voice) |
 | `vo_landing` | 6.8s | नमस्ते दोस्त! मैं हूँ स्विफ्टी! आज हम संख्याओं को जोड़ना सीखेंगे। | landing greeting | new - tools/build_vo.py |
 | `vo_p1_correct` | 4.7s | शाबाश! 32 जोड़ 15 बराबर 47 | P1 correct | new - tools/build_vo.py |
 | `vo_p1_hint_a` | 3.2s | ध्यान से देखिए, कुल 4 दहाइयाँ | P1 hint_a | new - tools/build_vo.py |
-| `vo_p1_keys` | 3.7s | हाथ को देखिए, और इन अंकों पर टैप कीजिए। | P1 keys; P2 keys | new - tools/build_vo.py |
 | `vo_p1_prompt` | 4.1s | 32 और 15 को जोड़िए और सही जोड़ टाइप करिए। | P1 prompt | new - tools/build_vo.py |
 | `vo_p1_try_again` | 3.3s | ब्लॉक्स को गिनिए और सही जोड़ टाइप करिए। | P1 try_again; P2 try_again | new - tools/build_vo.py |
 | `vo_p2_correct` | 4.2s | शाबाश! 40 जोड़ 30 बराबर 70 | P2 correct | new - tools/build_vo.py |
@@ -43,15 +41,16 @@
 | `vo_pt_guided` | 2.3s | चलिए, साथ में करें! | phase gate → guided | MTG2A04_L02_S01 (same voice) |
 | `vo_pt_practice` | 1.7s | अब आपकी बारी! | phase gate → practice | MTG2A04_L02_S01 (same voice) |
 | `vo_pt_tutorial` | 2.3s | चलिए, शुरू करते हैं! | phase gate → tutorial | MTG2A04_L02_S01 (same voice) |
-| `vo_t1_a` | 2.5s | परी के पास 23 ब्लॉक्स हैं | T1 a | new - tools/build_vo.py |
+| `vo_t1_a` | 2.6s | तारा के पास 23 ब्लॉक्स हैं | T1 a | new - tools/build_vo.py |
 | `vo_t1_ask` | 5.2s | चलिए, पता करते हैं, दोनों के पास मिलाकर कुल कितने ब्लॉक्स हैं? | T1 ask | new - tools/build_vo.py |
-| `vo_t1_b` | 2.8s | और आरु के पास 12 ब्लॉक्स हैं। | T1 b | new - tools/build_vo.py |
-| `vo_t1_intro` | 3.4s | परी और आरु ब्लॉक्स से टॉवर बना रहे हैं। | T1 intro | new - tools/build_vo.py |
+| `vo_t1_b` | 2.9s | और कबीर के पास 12 ब्लॉक्स हैं। | T1 b | new - tools/build_vo.py |
+| `vo_t1_intro` | 3.5s | तारा और कबीर ब्लॉक्स से टॉवर बना रहे हैं। | T1 intro | new - tools/build_vo.py |
 | `vo_t2_a_digits` | 3.0s | 23 में 2 दहाई और 3 इकाई हैं। | T2 a_digits | new - tools/build_vo.py |
 | `vo_t2_a_ones` | 3.2s | अब 3 इकाई के लिए 3 ब्लॉक रखते हैं। | T2 a_ones | new - tools/build_vo.py |
 | `vo_t2_a_tens` | 3.2s | पहले 2 दहाई के लिए 2 बंडल रखते हैं। | T2 a_tens | new - tools/build_vo.py |
-| `vo_t2_b_build` | 3.4s | अब आप ब्लॉक्स की सहायता से 12 बनाइए। | T2 b_build | new - tools/build_vo.py |
 | `vo_t2_b_digits` | 3.9s | इसी तरह, 12 में 1 दहाई और 2 इकाई हैं। | T2 b_digits | new - tools/build_vo.py |
+| `vo_t2_b_ones` | 3.1s | अब 2 इकाई के लिए 2 ब्लॉक रखते हैं। | T2 b_ones | new - tools/build_vo.py |
+| `vo_t2_b_tens` | 3.4s | पहले 1 दहाई के लिए 1 बंडल रखते हैं। | T2 b_tens | new - tools/build_vo.py |
 | `vo_t2_done` | 4.9s | शाबाश! 23 और 12 को जोड़ने पर 35 मिलता है। | T2 done | new - tools/build_vo.py |
 | `vo_t2_head` | 3.4s | आइए, 23 और 12 को जोड़ते हैं। | T2 head | new - tools/build_vo.py |
 | `vo_t2_intro` | 4.5s | सबसे पहले ब्लॉक्स की सहायता से दोनों संख्याएँ बनाते हैं। | T2 intro | new - tools/build_vo.py |
@@ -62,10 +61,10 @@
 | `vo_t2_tens_sum` | 4.2s | 2 दहाई और 1 दहाई मिलाकर हुईं, 3 दहाई। | T2 tens_sum | new - tools/build_vo.py |
 | `vo_t2_total` | 5.6s | अब हमारे पास कुल 3 दहाइयाँ और 5 इकाइयाँ हैं, यानी 35 | T2 total | new - tools/build_vo.py |
 | `vo_t3_eq` | 2.8s | 23 जोड़ 12 बराबर 35 | T3 eq | new - tools/build_vo.py |
-| `vo_t3_total` | 3.9s | परी और आरु के पास कुल मिलाकर 35 ब्लॉक्स हैं। | T3 total | new - tools/build_vo.py |
-| `vo_t4_a` | 2.6s | परी के पास 34 ब्लॉक्स हैं। | T4 a | new - tools/build_vo.py |
-| `vo_t4_ask` | 5.0s | चलिए, पता करते हैं, अब परी के पास कुल कितने ब्लॉक्स हो गए? | T4 ask | new - tools/build_vo.py |
-| `vo_t4_b` | 2.9s | अम्मा ने उसे 52 ब्लॉक्स और दिए। | T4 b | new - tools/build_vo.py |
+| `vo_t3_total` | 4.1s | तारा और कबीर के पास कुल मिलाकर 35 ब्लॉक्स हैं। | T3 total | new - tools/build_vo.py |
+| `vo_t4_a` | 2.7s | तारा के पास 34 ब्लॉक्स हैं। | T4 a | new - tools/build_vo.py |
+| `vo_t4_ask` | 5.2s | चलिए, पता करते हैं, अब तारा के पास कुल कितने ब्लॉक्स हो गए? | T4 ask | new - tools/build_vo.py |
+| `vo_t4_b` | 2.8s | माँ ने उसे 52 ब्लॉक्स और दिए। | T4 b | new - tools/build_vo.py |
 | `vo_t4_head` | 3.1s | आइए, एक और उदाहरण देखते हैं। | T4 head | new - tools/build_vo.py |
 | `vo_t5_a_build` | 3.2s | ब्लॉक्स की सहायता से 34 बनाइए। | T5 a_build | new - tools/build_vo.py |
 | `vo_t5_a_digits` | 3.3s | 34 में 3 दहाई और 4 इकाई हैं। | T5 a_digits | new - tools/build_vo.py |
@@ -77,4 +76,4 @@
 | `vo_t5_tens_sum` | 4.4s | 3 दहाई और 5 दहाई मिलाकर हुईं, 8 दहाई। | T5 tens_sum | new - tools/build_vo.py |
 | `vo_t5_total` | 5.4s | अब हमारे पास कुल 8 दहाइयाँ और 6 इकाइयाँ हैं, यानी 86 | T5 total | new - tools/build_vo.py |
 | `vo_t6_eq` | 3.0s | 34 जोड़ 52 बराबर 86 | T6 eq | new - tools/build_vo.py |
-| `vo_t6_total` | 3.6s | परी के पास अब कुल मिलाकर 86 ब्लॉक्स हैं। | T6 total | new - tools/build_vo.py |
+| `vo_t6_total` | 3.7s | तारा के पास अब कुल मिलाकर 86 ब्लॉक्स हैं। | T6 total | new - tools/build_vo.py |

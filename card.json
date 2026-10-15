@@ -13,12 +13,11 @@
  },
  "landing_hero": {
   "kind": "pv_story",
-  "a": 23,
-  "b": 12,
   "people": [
-   "aaru",
-   "pari"
+   "kabir",
+   "tara"
   ],
+  "build": "castle",
   "title_look": "wall"
  },
  "skill_description_hi": "दो अंकों वाली दो संख्याओं को (बिना हासिल के) क्षैतिज रूप में जोड़ता है।",
@@ -66,11 +65,9 @@
    "vo_g3_hint_a": "assets/voiceover/vo_g3_hint_a.ogg",
    "vo_g3_hint_b": "assets/voiceover/vo_g3_hint_b.ogg",
    "vo_g3_prompt": "assets/voiceover/vo_g3_prompt.ogg",
-   "vo_hint_tap": "assets/voiceover/vo_hint_tap.ogg",
    "vo_landing": "assets/voiceover/vo_landing.ogg",
    "vo_p1_correct": "assets/voiceover/vo_p1_correct.ogg",
    "vo_p1_hint_a": "assets/voiceover/vo_p1_hint_a.ogg",
-   "vo_p1_keys": "assets/voiceover/vo_p1_keys.ogg",
    "vo_p1_prompt": "assets/voiceover/vo_p1_prompt.ogg",
    "vo_p1_try_again": "assets/voiceover/vo_p1_try_again.ogg",
    "vo_p2_correct": "assets/voiceover/vo_p2_correct.ogg",
@@ -95,8 +92,9 @@
    "vo_t2_a_digits": "assets/voiceover/vo_t2_a_digits.ogg",
    "vo_t2_a_ones": "assets/voiceover/vo_t2_a_ones.ogg",
    "vo_t2_a_tens": "assets/voiceover/vo_t2_a_tens.ogg",
-   "vo_t2_b_build": "assets/voiceover/vo_t2_b_build.ogg",
    "vo_t2_b_digits": "assets/voiceover/vo_t2_b_digits.ogg",
+   "vo_t2_b_ones": "assets/voiceover/vo_t2_b_ones.ogg",
+   "vo_t2_b_tens": "assets/voiceover/vo_t2_b_tens.ogg",
    "vo_t2_done": "assets/voiceover/vo_t2_done.ogg",
    "vo_t2_head": "assets/voiceover/vo_t2_head.ogg",
    "vo_t2_intro": "assets/voiceover/vo_t2_intro.ogg",
@@ -144,10 +142,10 @@
     "b": 12,
     "people": [
      {
-      "who": "pari"
+      "who": "tara"
      },
      {
-      "who": "aaru"
+      "who": "kabir"
      }
     ]
    }
@@ -165,7 +163,8 @@
     "a_tens": "vo_t2_a_tens",
     "a_ones": "vo_t2_a_ones",
     "b_digits": "vo_t2_b_digits",
-    "b_build": "vo_t2_b_build",
+    "b_tens": "vo_t2_b_tens",
+    "b_ones": "vo_t2_b_ones",
     "merge": "vo_t2_merge",
     "ones": "vo_t2_ones",
     "ones_sum": "vo_t2_ones_sum",
@@ -179,8 +178,9 @@
     "b": 12,
     "build": [
      "swifty",
-     "child"
-    ]
+     "swifty"
+    ],
+    "auto": true
    }
   },
   {
@@ -199,16 +199,16 @@
     "b": 12,
     "people": [
      {
-      "who": "pari"
+      "who": "tara"
      },
      {
-      "who": "aaru"
+      "who": "kabir"
      }
     ],
     "total": {
      "who": [
-      "pari",
-      "aaru"
+      "tara",
+      "kabir"
      ]
     }
    }
@@ -231,10 +231,10 @@
     "b": 52,
     "people": [
      {
-      "who": "pari"
+      "who": "tara"
      },
      {
-      "who": "amma"
+      "who": "maa"
      }
     ]
    }
@@ -284,14 +284,14 @@
     "b": 52,
     "people": [
      {
-      "who": "pari"
+      "who": "tara"
      },
      {
-      "who": "amma"
+      "who": "maa"
      }
     ],
     "total": {
-     "who": "pari"
+     "who": "tara"
     }
    }
   },
@@ -308,8 +308,7 @@
     "correct": "vo_g1_correct",
     "try_again": "vo_g1_try_again",
     "hint_a": "vo_g1_hint_a",
-    "hint_b": "vo_g1_hint_b",
-    "nudge": "vo_hint_tap"
+    "hint_b": "vo_g1_hint_b"
    },
    "data": {
     "a": 43,
@@ -334,8 +333,7 @@
     "correct": "vo_g2_correct",
     "try_again": "vo_g1_try_again",
     "hint_a": "vo_g2_hint_a",
-    "hint_b": "vo_g2_hint_b",
-    "nudge": "vo_hint_tap"
+    "hint_b": "vo_g2_hint_b"
    },
    "data": {
     "a": 30,
@@ -360,8 +358,7 @@
     "correct": "vo_g3_correct",
     "try_again": "vo_g1_try_again",
     "hint_a": "vo_g3_hint_a",
-    "hint_b": "vo_g3_hint_b",
-    "nudge": "vo_hint_tap"
+    "hint_b": "vo_g3_hint_b"
    },
    "data": {
     "a": 62,
@@ -384,8 +381,7 @@
     "correct": "vo_p1_correct",
     "try_again": "vo_p1_try_again",
     "hint_a": "vo_p1_hint_a",
-    "hint_b": "vo_g1_hint_b",
-    "keys": "vo_p1_keys"
+    "hint_b": "vo_g1_hint_b"
    },
    "data": {
     "a": 32,
@@ -403,8 +399,7 @@
     "correct": "vo_p2_correct",
     "try_again": "vo_p1_try_again",
     "hint_a": "vo_p2_hint_a",
-    "hint_b": "vo_p2_hint_b",
-    "keys": "vo_p1_keys"
+    "hint_b": "vo_p2_hint_b"
    },
    "data": {
     "a": 40,
@@ -424,8 +419,7 @@
     "h_tens": "vo_p3_h_tens",
     "h_ones": "vo_p3_h_ones",
     "h_end": "vo_g1_ask",
-    "h_tables": "vo_g1_try_again",
-    "nudge": "vo_hint_tap"
+    "h_tables": "vo_g1_try_again"
    },
    "data": {
     "a": 20,
@@ -455,8 +449,7 @@
     "h_tens": "vo_p4_h_tens",
     "h_ones": "vo_p4_h_ones",
     "h_end": "vo_g1_ask",
-    "h_tables": "vo_g1_try_again",
-    "nudge": "vo_hint_tap"
+    "h_tables": "vo_g1_try_again"
    },
    "data": {
     "a": 14,

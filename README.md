@@ -19,15 +19,15 @@ kit; `card.json` by `../pv-addition-kit/lessons.py`. Edit there, then rebuild (s
 ## The lesson, page by page
 | slide | deck page | kind | what happens |
 |---|---|---|---|
-| landing | 1 | — | Title "संख्याओं की जोड़"; Pari and Aaru with their blocks and "23 + 12 = ?" come in with the greeting; VO "नमस्ते दोस्त! मैं हूँ स्विफ्टी! आज हम संख्याओं को जोड़ना सीखेंगे।" |
-| T1 | 2 | STORY ask | "कुल कितने ब्लॉक्स ?" Pari (23 = 2 rods + 3 cubes) and Aaru (12); the equation completes in sync with the VO, ending "= ?" |
-| T2 | 3 | PV_DEMO | "आइए, 23 और 12 को जोड़ते हैं।" 23's table appears, its digits light with their columns; Swifty's hand taps दहाई + twice, इकाई + three times. 12: the child builds it (each + pulses until its count is in, then switches off). The sum table appears; the child taps the ones across (each leaves a grey copy), then the tens; "3 दहाई और 5 इकाई, यानी 35" lights rods, cubes, the column digits and "= 35"; the sum table rises to the middle; confetti, "शाबाश! 23 और 12 को जोड़ने पर 35 मिलता है।" |
+| landing | 1 | — | Title "संख्याओं की जोड़"; with the greeting a half-built toy-block castle pops up in the middle (its gaps as pale outlines); Kabir and Tara zip in from both sides with a swoosh (blur, speed lines, a skid and dust - user 2026-10-14, "like Chhota Bheem"), a block in each hand, put them into the gaps in turns, the flag goes up, sparkles, they cheer - then they keep playing while the screen waits; no equation; VO "नमस्ते दोस्त! मैं हूँ स्विफ्टी! आज हम संख्याओं को जोड़ना सीखेंगे।" |
+| T1 | 2 | STORY ask | "कुल कितने ब्लॉक्स ?" Tara (23 = 2 rods + 3 cubes) and Kabir (12); the equation completes in sync with the VO, ending "= ?" |
+| T2 | 3 | PV_DEMO | "आइए, 23 और 12 को जोड़ते हैं।" Automatic (user 2026-10-14): all three tables (23, 12, the sum) stand from the start; Swifty's hand builds 23 and 12 with the + buttons (beside each table) as their digits light, then taps the ones across (each leaves a grey copy), then the tens; "3 दहाई और 5 इकाई, यानी 35" lights rods, cubes and "= 35"; the sum table rises to the middle; confetti, "शाबाश! 23 और 12 को जोड़ने पर 35 मिलता है।" The child only watches; → when done. |
 | T3 | 3b (new) | STORY sum | Same picture; on "23 जोड़ 12 बराबर 35" every block moves into the third column ("कुल") and the "?" becomes 35 |
-| T4 | 4a | STORY ask | "एक और उदाहरण देखते हैं।" Pari 34, Amma gives 52 |
+| T4 | 4a | STORY ask | "एक और उदाहरण देखते हैं।" Tara 34, Maa gives 52 |
 | T5 | 4b | PV_DEMO | The child builds 34 and 52 themselves, then adds as in T2 |
 | T6 | 5 | STORY sum | 34 + 52 = 86 |
 | G1–G3 | 6, 7, 8 | PV_MERGE_MCQ | "संख्याएँ जोड़िए।" 43+24 / 30+25 / 62+20: both tables built block by block, an empty sum table; the child taps every block across (any order; idle 7s - they pulse + the hand); the sum table moves to the centre; three answers (the deck's: 76 47 67 / 55 50 65 / 72 82 80) |
-| P1–P2 | 9, 10 | PV_NUMPAD | 32+15 / 40+30 with both tables; the answer box with the hand; a tap opens the number pad; two digits = checked |
+| P1–P2 | 9, 10 | PV_NUMPAD | 32+15 / 40+30 with both tables; the answer box with the hand; a tap opens the number pad; the ✓ key checks the answer (← = backspace; review 2026-10-14) |
 | P3–P4 | 11, 12 | MENTAL_MCQ | 20+15 / 14+30, only the equation and three answers (25 35 70 / 34 17 44) |
 | CEL | 16 | CELEBRATION | MTG2A04's end screen exactly (jingle, Swiftie jumps), no text - only the VO "शाबाश! आपने संख्याओं को जोड़ना सीख लिया।" (review 2026-10-08) |
 Pages 13, 14, 15: deleted (deck).
@@ -37,7 +37,7 @@ Pages 13, 14, 15: deleted (deck).
 - **P1–P2:** 1 "ब्लॉक्स को गिनिए और सही जोड़ टाइप करिए।" · 2 the blocks move by themselves into a third table (the pad hidden meanwhile), the two tables go, the sum table takes the centre + "कुल 4 दहाइयाँ और 7 इकाइयाँ हैं।" · 3 the right digit keys light one after the other with the hand ("हाथ को देखिए, और इन अंकों पर टैप कीजिए।").
 - **P3–P4:** 1 the tens digits, then the ones digits of the equation light with "ध्यान से देखिए, 2 दहाई और 1 दहाई; 0 इकाई और 5 इकाई। अब सही जोड़ चुनिए।" · 2 the two tables come in + "ब्लॉक्स को गिनिए और सही जोड़ चुनिए।" · 3 the answers hide, the blocks move into the third table, the sum table takes the centre, the answers return with the right one glowing (+ hand).
 - Right answer: green card / green answer box, SFX + confetti + Swiftie cheers + the deck's CR line; the answer flies into the "?". Score = first-try correctness (`recordResult`).
-- Idle 7s anywhere: the hand on what to tap next; a question re-asks itself.
+- Idle 7s anywhere: what to tap next pulses again (see Nudges below); a question re-asks itself.
 
 ### Deck slips corrected (FIX in `lessons.py`)
 - Page 4b repeats page 3's lines (3 + 2 = 5 इकाई, 2 + 1 = 3 दहाई, "…यानी 35", "23 और 12 को जोड़ने पर 35"); its own boxes say 8 दहाई / 6 इकाई / 86 - the VO is made for 34 + 52 ("4 इकाई और 2 इकाई … 6 इकाई", "3 दहाई और 5 दहाई … 8 दहाई", "…यानी 86", "34 और 52 को जोड़ने पर 86").
@@ -45,19 +45,27 @@ Pages 13, 14, 15: deleted (deck).
 - Page 10's hint says "कुल 4 दहाइयाँ और 0 इकाई" for 40 + 30 - it is "कुल 7 दहाइयाँ और 0 इकाई हैं।"
 - Page 4b gives no heading; it shows "आइए, 34 और 52 को जोड़ते हैं।" (text only, as T2's pattern).
 
-### Cast (changed from the deck, 2026-10-12)
-The deck's Tara / Kabir / Maa are not in the Village world the games' art comes from; at the user's request they are
-recast as its Pari / Aaru / Amma (S02's cast): तारा → परी, कबीर → आरु, माँ → अम्मा in every line, the deck's words otherwise
-unchanged. The 8 clips that say a name were re-recorded in the same voice (`vo_t1_intro`, `vo_t1_a`, `vo_t1_b`,
+### Cast
+The deck's own Tara / Kabir / Maa (2026-10-13, "as per the ppt" - S01 had been recast to S02's Pari / Aaru / Amma on
+2026-10-12 and is back). Tara and Kabir are the Drive "New Worlds" > "Gogo and Friends" world's art; that world has no
+mother, so Maa is the Village world's Amma art. The 8 clips that say a name were re-recorded in the same voice (`vo_t1_intro`, `vo_t1_a`, `vo_t1_b`,
 `vo_t3_total`, `vo_t4_a`, `vo_t4_b`, `vo_t4_ask`, `vo_t6_total`).
 
+
+### Nudges and the third wrong answer (2026-10-15, matched to the deck)
+The deck's own cues win over the earlier hand nudges: idle 7s = the thing to tap **pulses again** (+ buttons, blocks,
+"दहाई बनाओ", with the nudge chime) - no hand. The hand stays only where the deck asks for it: the number pad's answer
+counter (after 7s idle) and the ghost drag of a new ten on the tutorial page (none on the guided pages). The third
+wrong answer: the right card is highlighted and the others fade and lock (MCQ), or the right digit keys light in turn
+(number pad) - no hand and no extra line. The idle hand, where it shows, touches its target.
+
 ## Assets
-- **Blocks:** `pv_rod.webp` (the green ten) and `pv_cube.webp` (the orange one) - cut from the deck's own art.
-- **People:** Pari, Aaru and Amma - the Village world's character art (Drive "Village Design_Final/Characters" and
-  "Village World Chronicles.pdf"), made by `../pv-addition-kit/make_characters.py`, the same files as S02's:
-  `char_pari.webp` / `char_aaru.webp` / `char_amma.webp` - round portraits for the story pages,
-  `char_pari_full.webp` / `char_aaru_full.webp` - the whole waving figures on the first screen. Every supplied Aaru carries
-  a bundle of sticks; his waving pose has them retouched away (`../pv-addition-kit/art_src/remove_sticks.py`).
+- **Blocks:** `pv_rod4.webp` (the green ten) and `pv_cube4.webp` (the golden one) - the user's isometric cube (2026-10-14); the rod is 10 of it recoloured green, stacked at its own pitch, so a rod = exactly 10 loose cubes.
+- **People:** Tara and Kabir (Drive "Gogo Design_Final/Characters/<Name>/") and Maa (the Village world's Amma), made by
+  `../pv-addition-kit/make_characters.py`: `char_tara.webp` / `char_kabir.webp` / `char_maa.webp` - round portraits for
+  the story pages (their Front View); `char_kabir_full.webp` ("Explaining") / `char_tara_full.webp` ("Excited
+  Welcoming") - the first screen's figures, a hand out toward the tower; `char_<who>_cheer.webp` ("Happy") - swapped in
+  when the tower is done.
 - **Shell (from MTG2A04_L02_S01):** fonts, Swiftie (`assets/gif/`, `sw_head_*`, `mascot`, `start_mascot`, `last_swifty_*`), landing card art, buttons, nudge hand + its tap ripple, `end_screen.webp`, `assets/sfx/*`, the phase-gate VO `vo_pt_*`, `vo_hint_tap`, `sfx_celebrate`.
 - **VO:** 69 new clips, see `VO_MANIFEST.md`. Every file in `assets/` is used; `tools/gen_asset_sizes.js` lists them all for preloading.
 
