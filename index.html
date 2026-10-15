@@ -9,7 +9,7 @@
      request, so without this the very first paint is unstyled. This inline rule
      lands the loader's own colour on the first frame. -->
 <style>html,body{background:#FFFFFF;margin:0;}</style>
-<link rel="stylesheet" href="style.css?v=20261015-115211">
+<link rel="stylesheet" href="style.css?v=20261015-145009">
 <!-- [loading] the landing's own files start downloading with the page, alongside style.css - not only once app.js has
      arrived and asked for them (the boot loader waits for exactly these: app.js Assets, CRIT). http(s) only: on
      file:// a preload of a fetch() fails, and local files need no head start. -->
@@ -166,7 +166,8 @@
    "tara"
   ],
   "build": "castle",
-  "title_look": "wall"
+  "title_look": "wall",
+  "start_at": 4.0
  },
  "skill_description_hi": "दो अंकों वाली दो संख्याओं को (बिना हासिल के) क्षैतिज रूप में जोड़ता है।",
  "phase_distribution": {
@@ -295,7 +296,17 @@
      {
       "who": "kabir"
      }
-    ]
+    ],
+    "signs": {
+     "plus": [
+      "ask",
+      0.545
+     ],
+     "eq": [
+      "ask",
+      0.7
+     ]
+    }
    }
   },
   {
@@ -358,6 +369,16 @@
       "tara",
       "kabir"
      ]
+    },
+    "signs": {
+     "plus": [
+      "eq",
+      0.257
+     ],
+     "eq": [
+      "eq",
+      0.49
+     ]
     }
    }
   },
@@ -384,7 +405,17 @@
      {
       "who": "maa"
      }
-    ]
+    ],
+    "signs": {
+     "plus": [
+      "ask",
+      0.664
+     ],
+     "eq": [
+      "ask",
+      0.707
+     ]
+    }
    }
   },
   {
@@ -440,6 +471,16 @@
     ],
     "total": {
      "who": "tara"
+    },
+    "signs": {
+     "plus": [
+      "eq",
+      0.321
+     ],
+     "eq": [
+      "eq",
+      0.538
+     ]
     }
    }
   },
@@ -631,6 +672,6 @@
 
 <!-- ============ ENGINE ============ -->
 <script src="swiftpal-bridge.js"></script>   <!-- [QA 01] host bridge: Android / iOS / web - must load before app.js -->
-<script src="app.js?v=20261015-115211"></script>
+<script src="app.js?v=20261015-145009"></script>
 </body>
 </html>
