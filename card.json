@@ -85,7 +85,7 @@
    "vo_p4_h_tens": "assets/voiceover/vo_p4_h_tens.ogg",
    "vo_pt_guided": "assets/voiceover/vo_pt_guided.ogg",
    "vo_pt_practice": "assets/voiceover/vo_pt_practice.ogg",
-   "vo_pt_tutorial": "assets/voiceover/vo_pt_tutorial.ogg",
+   "vo_pt_tutorial": "assets/voiceover/vo_pt_tutorial.wav",
    "vo_t1_a": "assets/voiceover/vo_t1_a.ogg",
    "vo_t1_ask": "assets/voiceover/vo_t1_ask.ogg",
    "vo_t1_b": "assets/voiceover/vo_t1_b.ogg",
@@ -191,7 +191,8 @@
      "swifty",
      "swifty"
     ],
-    "auto": true
+    "auto": true,
+    "sum_at": 0.746
    }
   },
   {
@@ -296,7 +297,8 @@
     "build": [
      "child",
      "child"
-    ]
+    ],
+    "sum_at": 0.753
    }
   },
   {
@@ -358,6 +360,13 @@
      76,
      47,
      67
+    ],
+    "eq_at": [
+     0.374,
+     0.52,
+     0.613,
+     0.715,
+     0.84
     ]
    }
   },
@@ -383,6 +392,13 @@
      55,
      50,
      65
+    ],
+    "eq_at": [
+     0.403,
+     0.537,
+     0.622,
+     0.716,
+     0.831
     ]
    }
   },
@@ -408,6 +424,13 @@
      72,
      82,
      80
+    ],
+    "eq_at": [
+     0.391,
+     0.53,
+     0.617,
+     0.715,
+     0.834
     ]
    }
   },
@@ -426,7 +449,14 @@
    },
    "data": {
     "a": 32,
-    "b": 15
+    "b": 15,
+    "eq_at": [
+     0.361,
+     0.509,
+     0.602,
+     0.706,
+     0.832
+    ]
    }
   },
   {
@@ -444,7 +474,14 @@
    },
    "data": {
     "a": 40,
-    "b": 30
+    "b": 30,
+    "eq_at": [
+     0.412,
+     0.542,
+     0.624,
+     0.716,
+     0.827
+    ]
    }
   },
   {
@@ -474,6 +511,13 @@
      "digits",
      "tables",
      "merge_reveal"
+    ],
+    "eq_at": [
+     0.39,
+     0.529,
+     0.616,
+     0.714,
+     0.832
     ]
    }
   },
@@ -504,6 +548,13 @@
      "digits",
      "tables",
      "merge_reveal"
+    ],
+    "eq_at": [
+     0.384,
+     0.524,
+     0.613,
+     0.712,
+     0.831
     ]
    }
   },
