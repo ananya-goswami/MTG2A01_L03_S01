@@ -83,8 +83,8 @@
    "vo_p4_correct": "assets/voiceover/vo_p4_correct.ogg",
    "vo_p4_h_ones": "assets/voiceover/vo_p4_h_ones.ogg",
    "vo_p4_h_tens": "assets/voiceover/vo_p4_h_tens.ogg",
-   "vo_pt_guided": "assets/voiceover/vo_pt_guided.ogg",
-   "vo_pt_practice": "assets/voiceover/vo_pt_practice.ogg",
+   "vo_pt_guided": "assets/voiceover/vo_pt_guided.wav",
+   "vo_pt_practice": "assets/voiceover/vo_pt_practice.wav",
    "vo_pt_tutorial": "assets/voiceover/vo_pt_tutorial.wav",
    "vo_t1_a": "assets/voiceover/vo_t1_a.ogg",
    "vo_t1_ask": "assets/voiceover/vo_t1_ask.ogg",
@@ -207,6 +207,7 @@
    },
    "data": {
     "mode": "sum",
+    "sum_at": 0.67,
     "a": 23,
     "b": 12,
     "people": [
@@ -313,6 +314,7 @@
    },
    "data": {
     "mode": "sum",
+    "sum_at": 0.68,
     "a": 34,
     "b": 52,
     "people": [
