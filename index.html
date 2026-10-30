@@ -2532,7 +2532,7 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
   ],
   "build": "castle",
   "title_look": "wall",
-  "start_at": 4.0
+  "start_at": 3.5
  },
  "skill_description_hi": "दो अंकों वाली दो संख्याओं को (बिना हासिल के) क्षैतिज रूप में जोड़ता है।",
  "phase_distribution": {
@@ -2568,16 +2568,13 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
    "vo_g1_correct": "assets/voiceover/vo_g1_correct.ogg",
    "vo_g1_great": "assets/voiceover/vo_g1_great.ogg",
    "vo_g1_hint_a": "assets/voiceover/vo_g1_hint_a.ogg",
-   "vo_g1_hint_b": "assets/voiceover/vo_g1_hint_b.ogg",
    "vo_g1_prompt": "assets/voiceover/vo_g1_prompt.ogg",
    "vo_g1_try_again": "assets/voiceover/vo_g1_try_again.ogg",
    "vo_g2_correct": "assets/voiceover/vo_g2_correct.ogg",
    "vo_g2_hint_a": "assets/voiceover/vo_g2_hint_a.ogg",
-   "vo_g2_hint_b": "assets/voiceover/vo_g2_hint_b.ogg",
    "vo_g2_prompt": "assets/voiceover/vo_g2_prompt.ogg",
    "vo_g3_correct": "assets/voiceover/vo_g3_correct.ogg",
    "vo_g3_hint_a": "assets/voiceover/vo_g3_hint_a.ogg",
-   "vo_g3_hint_b": "assets/voiceover/vo_g3_hint_b.ogg",
    "vo_g3_prompt": "assets/voiceover/vo_g3_prompt.ogg",
    "vo_landing": "assets/voiceover/vo_landing.ogg",
    "vo_p1_correct": "assets/voiceover/vo_p1_correct.ogg",
@@ -2586,16 +2583,13 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
    "vo_p1_try_again": "assets/voiceover/vo_p1_try_again.ogg",
    "vo_p2_correct": "assets/voiceover/vo_p2_correct.ogg",
    "vo_p2_hint_a": "assets/voiceover/vo_p2_hint_a.ogg",
-   "vo_p2_hint_b": "assets/voiceover/vo_p2_hint_b.ogg",
    "vo_p2_prompt": "assets/voiceover/vo_p2_prompt.ogg",
    "vo_p3_correct": "assets/voiceover/vo_p3_correct.ogg",
+   "vo_p3_h_digits": "assets/voiceover/vo_p3_h_digits.ogg",
    "vo_p3_h_lead": "assets/voiceover/vo_p3_h_lead.ogg",
-   "vo_p3_h_ones": "assets/voiceover/vo_p3_h_ones.ogg",
-   "vo_p3_h_tens": "assets/voiceover/vo_p3_h_tens.ogg",
    "vo_p3_prompt": "assets/voiceover/vo_p3_prompt.ogg",
    "vo_p4_correct": "assets/voiceover/vo_p4_correct.ogg",
-   "vo_p4_h_ones": "assets/voiceover/vo_p4_h_ones.ogg",
-   "vo_p4_h_tens": "assets/voiceover/vo_p4_h_tens.ogg",
+   "vo_p4_h_digits": "assets/voiceover/vo_p4_h_digits.ogg",
    "vo_pt_guided": "assets/voiceover/vo_pt_guided.wav",
    "vo_pt_practice": "assets/voiceover/vo_pt_practice.wav",
    "vo_pt_tutorial": "assets/voiceover/vo_pt_tutorial.wav",
@@ -2610,7 +2604,6 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
    "vo_t2_b_ones": "assets/voiceover/vo_t2_b_ones.ogg",
    "vo_t2_b_tens": "assets/voiceover/vo_t2_b_tens.ogg",
    "vo_t2_done": "assets/voiceover/vo_t2_done.ogg",
-   "vo_t2_head": "assets/voiceover/vo_t2_head.ogg",
    "vo_t2_intro": "assets/voiceover/vo_t2_intro.ogg",
    "vo_t2_merge": "assets/voiceover/vo_t2_merge.ogg",
    "vo_t2_ones": "assets/voiceover/vo_t2_ones.ogg",
@@ -2681,7 +2674,6 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
    "type": "PV_DEMO",
    "prompt_hi": "आइए, 23 और 12 को जोड़ते हैं।",
    "audio": {
-    "head": "vo_t2_head",
     "intro": "vo_t2_intro",
     "a_digits": "vo_t2_a_digits",
     "a_tens": "vo_t2_a_tens",
@@ -2705,7 +2697,11 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
      "swifty"
     ],
     "auto": true,
-    "sum_at": 0.746
+    "sum_at": 0.746,
+    "num_at": [
+     0.08,
+     0.267
+    ]
    }
   },
   {
@@ -2812,7 +2808,11 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
      "child",
      "child"
     ],
-    "sum_at": 0.753
+    "sum_at": 0.753,
+    "num_at": [
+     0.064,
+     0.067
+    ]
    }
   },
   {
@@ -2865,8 +2865,7 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
     "ask": "vo_g1_ask",
     "correct": "vo_g1_correct",
     "try_again": "vo_g1_try_again",
-    "hint_a": "vo_g1_hint_a",
-    "hint_b": "vo_g1_hint_b"
+    "hint_a": "vo_g1_hint_a"
    },
    "data": {
     "a": 43,
@@ -2897,8 +2896,7 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
     "ask": "vo_g1_ask",
     "correct": "vo_g2_correct",
     "try_again": "vo_g1_try_again",
-    "hint_a": "vo_g2_hint_a",
-    "hint_b": "vo_g2_hint_b"
+    "hint_a": "vo_g2_hint_a"
    },
    "data": {
     "a": 30,
@@ -2929,8 +2927,7 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
     "ask": "vo_g1_ask",
     "correct": "vo_g3_correct",
     "try_again": "vo_g1_try_again",
-    "hint_a": "vo_g3_hint_a",
-    "hint_b": "vo_g3_hint_b"
+    "hint_a": "vo_g3_hint_a"
    },
    "data": {
     "a": 62,
@@ -2959,8 +2956,7 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
     "prompt": "vo_p1_prompt",
     "correct": "vo_p1_correct",
     "try_again": "vo_p1_try_again",
-    "hint_a": "vo_p1_hint_a",
-    "hint_b": "vo_g1_hint_b"
+    "hint_a": "vo_p1_hint_a"
    },
    "data": {
     "a": 32,
@@ -2984,8 +2980,7 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
     "prompt": "vo_p2_prompt",
     "correct": "vo_p2_correct",
     "try_again": "vo_p1_try_again",
-    "hint_a": "vo_p2_hint_a",
-    "hint_b": "vo_p2_hint_b"
+    "hint_a": "vo_p2_hint_a"
    },
    "data": {
     "a": 40,
@@ -3009,8 +3004,7 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
     "prompt": "vo_p3_prompt",
     "correct": "vo_p3_correct",
     "h_lead": "vo_p3_h_lead",
-    "h_tens": "vo_p3_h_tens",
-    "h_ones": "vo_p3_h_ones",
+    "h_digits": "vo_p3_h_digits",
     "h_end": "vo_g1_ask",
     "h_tables": "vo_g1_try_again"
    },
@@ -3046,8 +3040,7 @@ body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio
     "prompt": "vo_p3_prompt",
     "correct": "vo_p4_correct",
     "h_lead": "vo_p3_h_lead",
-    "h_tens": "vo_p4_h_tens",
-    "h_ones": "vo_p4_h_ones",
+    "h_digits": "vo_p4_h_digits",
     "h_end": "vo_g1_ask",
     "h_tables": "vo_g1_try_again"
    },
@@ -4493,7 +4486,7 @@ Object.assign(PVK, (function(){
       if(!n) return res();
       let got = 0, shown = 0, idleT = 0, beatT = 0, last = -1e9;
       btn.classList.remove("off"); btn.classList.add("pulse");
-      const arm = ()=>{ clearTimeout(idleT); idleT = setTimeout(()=>{ if(!C.alive() || got >= n) return; K.repulse(btn, true); arm(); }, idleMs()); };
+      const arm = ()=>{ clearTimeout(idleT); idleT = setTimeout(()=>{ if(!C.alive() || got >= n) return; K.repulse(btn, true); placeNudge(btn.querySelector(".pv-plus") || btn); arm(); }, idleMs()); };   // + the hand on it (review 2026-10-28)
       const beat = ()=>{ beatT = 0; if(!C.alive() || shown >= got) return;
         const due = last + K.ADD_STEP - performance.now();
         if(due > 0){ beatT = setTimeout(beat, due); return; }
@@ -4520,15 +4513,16 @@ Object.assign(PVK, (function(){
     btn.classList.add("off");
   }
   /* the child taps blocks of one kind (or any kind, kind null) in the addend tables: each flies to the sum table.
-     Resolves when none are left. Other blocks are not tappable meanwhile. Idle 7s: they pulse + the hand. */
+     Resolves when none are left. Other blocks are not tappable meanwhile. Idle 7s: they pulse + the hand on the first
+     one left (review 2026-10-28: the pulse alone was no further hint). */
   function tapAcross(C, from, S, kind){
     return new Promise(res =>{
       const pool = ()=> from.flatMap(T => kind ? T.list(kind) : [...T.rods, ...T.cubes]);
       if(!pool().length) return res();
       let flying = 0, idleT = 0, fin = false;
-      const done = ()=>{ if(fin || pool().length || flying) return; fin = true; clearTimeout(idleT); res(); };
+      const done = ()=>{ if(fin || pool().length || flying) return; fin = true; clearTimeout(idleT); stopNudge(); res(); };
       const arm = ()=>{ clearTimeout(idleT); idleT = setTimeout(()=>{ if(!C.alive() || fin) return;
-        pool().forEach(b => K.repulse(b, true)); arm(); }, idleMs()); };   // the decks: "pulsate the blocks until all are tapped" - no SFX (review 2026-10-27)
+        const left = pool(); left.forEach(b => K.repulse(b, true)); if(left[0]) placeNudge(left[0]); arm(); }, idleMs()); };   // the decks: "pulsate the blocks until all are tapped" - no SFX (review 2026-10-27)
       from.forEach(T => [...T.rods, ...T.cubes].forEach(b =>{
         if(kind && b._kind !== kind) return;
         b.classList.add("pv-tap");
@@ -4876,7 +4870,7 @@ const pvSplit = n =>({ t: Math.floor(n / 10), o: n % 10 });
 function pvReplay(C){ state.replayAudio = ()=>{ if(!isPlaying && C.cur && C.alive()) C.say(C.cur).catch(()=>{}); }; }
 function pvTapOnce(C, btn){
   return new Promise(res =>{ let idleT = 0;
-    const arm = ()=>{ clearTimeout(idleT); idleT = setTimeout(()=>{ if(C.alive() && btn.onclick){ PVK.repulse(btn, true); arm(); } }, IDLE_MS); };   // the decks: the button pulsates (no SFX - review 2026-10-27)
+    const arm = ()=>{ clearTimeout(idleT); idleT = setTimeout(()=>{ if(C.alive() && btn.onclick){ PVK.repulse(btn, true); placeNudge(btn); arm(); } }, IDLE_MS); };   // the decks: the button pulsates (no SFX - review 2026-10-27) + the hand on it (review 2026-10-28)
     btn.classList.remove("off"); btn.classList.add("pulse");
     btn.onclick = ()=>{ if(!C.alive()) return; btn.onclick = null; clearTimeout(idleT); stopNudge(); btn.classList.remove("pulse"); res(); };
     arm(); });
@@ -5242,12 +5236,14 @@ const PVModules = {
          built, the sum table once both numbers are built (user 2026-10-15) - the same in auto */
       [TA, TB, TS].forEach(T => T.el.classList.add("pv-hide"));
       plus.classList.add("pv-hide");   // the + comes with the second number (auto: with the sum table - user 2026-10-15)
+      /* the number cards come one by one, each with its table as its digits line names it (review 2026-10-28: they stood
+         there together from the start); data.num_at = where each number is said in its digits clip (measured from the VO) */
+      [cA, cB].forEach(c => c.classList.add("pv-hide"));
       const showT = T =>{ if(T.el.classList.contains("pv-hide")) K.showTable(T); };
       async function build(T, card, n, who, key){
-        const p = pvSplit(n);
-        showT(T);
-        await C.cue(key + "_digits", [[0.04, ()=>{ K.lightDigit(card, "t"); T.lightHead("t"); }],
-                                      [0.5, ()=>{ K.lightDigit(card, "t", false); T.lightHead("t", false); K.lightDigit(card, "o"); T.lightHead("o"); }]]);
+        const p = pvSplit(n), at = Math.max(.04, ((d.num_at || [])[key === "a" ? 0 : 1]) || 0);
+        await C.cue(key + "_digits", [[at, ()=>{ showT(T); K.show(card); K.lightDigit(card, "t"); T.lightHead("t"); }],
+                                      [Math.max(.5, at + .2), ()=>{ K.lightDigit(card, "t", false); T.lightHead("t", false); K.lightDigit(card, "o"); T.lightHead("o"); }]]);
         await C.wait(250); K.lightDigit(card, "o", false); T.lightHead("o", false);
         const src = K.sources(sc, T, L.srcY, L.cx);                      // at the bottom centre of the screen (SME review), where the sum table comes later
         src.show();
@@ -5267,7 +5263,7 @@ const PVModules = {
       }
       K.run(C, async ()=>{
         await C.wait(250);
-        if(C.has("head")) await C.say("head");
+        if(C.has("head")) await C.say("head");   // (none now: the page opens on its intro line - review 2026-10-28)
         if(C.has("intro")) await C.say("intro");
         await build(TA, cA, d.a, d.build[0], "a");
         /* (the + comes with the merge line - no longer after the second number) */
@@ -5378,7 +5374,7 @@ const PVModules = {
        WRONG: 1 wiggle + try_again; 2 wiggle + the hint ("कुल 6 दहाइयाँ और 7 इकाइयाँ", the rods / cubes lit as it says
        them); 3 wiggle + the others fade and lock, the right one glows, the hand on it (vo_hint_tap) - the child taps it.
        RIGHT: it flies into the "?". data: { a, b, options:[..] }. audio: prompt, great, ask, correct, try_again,
-       hint_a, hint_b, nudge (+ dd_try for a missed new-ten drop). */
+       hint_a, nudge (+ dd_try for a missed new-ten drop). */
     mount(host, slide){
       /* alignment pass (user 2026-10-16): the same scale as the number pad's page - a bigger equation and blocks, the two
          tables an even gap apart round the centre, the sum table right under them - so the screen is filled, not top-left */
@@ -5391,7 +5387,9 @@ const PVModules = {
       const TB = K.table(sc, { cx: L.cxR, y: L.tableY, cube: L.cube, blk: L.blk, pad: L.pad, tensMax: tMax, tensFinal: B.t, onesMax: 9 });
       { const GAP = 110, x0 = L.cx - (TA.W + GAP + TB.W) / 2;
         [[TA, x0], [TB, x0 + TA.W + GAP]].forEach(([T, x])=>{ const dx = x - T.x; T.x += dx; T.all().forEach(e => K.setXY(e, e._x + dx, e._y)); });
-        L.cx = x0 + TA.W + GAP / 2; L.sumY = L.tableY + TA.H + 22; }
+        L.sumY = L.tableY + TA.H + 22; }
+      /* everything centres on the equation's axis, L.cx (review 2026-10-28: with two tables of different widths the gap's
+         middle was used - the pair and the sum table stood up to 48px right of the equation) */
       const TS = K.table(sc, { cx: L.cx, y: L.sumY, cube: L.cube, blk: L.blk, pad: L.pad, tensMax: Math.max(S.t, 3), tensFinal: S.t, onesMax: A.o + B.o });
       TS.el.classList.add("pv-hide");
       const plus = K.add(sc, "div", "pv-op pv-sym", "font-size:56px"); plus.textContent = "+"; K.setXY(plus, K.pair(TA, TB, L.cx), L.tableY + TA.H / 2 - 36);
@@ -5406,13 +5404,13 @@ const PVModules = {
         if(btn) btn.classList.add("pv-gone");
         await C.say("great");
         [TA, TB].forEach(T => T.fade()); plus.classList.add("pv-gone");
-        await TS.move(0, L.tableY - TS.y, 700); C.guard();
+        await TS.move(L.cx - TS.W / 2 - TS.x, L.tableY - TS.y, 700); C.guard();   // (centred under the equation, whatever moved it aside)
         await K.mcq(C, { options: d.options, answer: sum, y: L.tableY + TS.H + 40, reask: "ask", eq: E,
           onReady: M =>{ M.open().then(()=>{ C.guard(); return C.say("ask"); }).then(()=> M.ready(), ()=>{}); },
           onRight: o => K.flyToQ(C, o, E),
           ladder: async (n, M)=>{
             if(n === 1) await C.say("try_again");
-            else if(n === 2){ await C.cue("hint_a", [[0.35, ()=> K.sweep(TS.rods, 120)]]); await C.cue("hint_b", [[0.1, ()=> K.sweep(TS.cubes, 90)]]); }
+            else if(n === 2) await C.cue("hint_a", [[0.33, ()=> K.sweep(TS.rods, 120)], [0.66, ()=> K.sweep(TS.cubes, 90)]]);   // (one clip since the VO of 2026-10-29: the rods on "कुल", the cubes on "और")
             else M.lock();   // the decks' WA3: highlight the right one, fade the others, the hand on it (no line)
           } });
       });
@@ -5424,7 +5422,7 @@ const PVModules = {
        table by themselves (the number pad hidden meanwhile; with regrouping the ten is made too), the two tables go and
        the sum table takes the centre + the hint (its rods / cubes lit); 3 wiggle + the right digit keys light one
        after the other, the hand on each. RIGHT: the answer flies into the "?". data: { a, b }.
-       audio: prompt, correct, try_again, hint_a, hint_b, keys. */
+       audio: prompt, correct, try_again, hint_a, keys. */
     mount(host, slide){
       /* the number pad's page sits a little higher than the other main pages - the equation and the tables up - so the
          answer box and a bigger pad under it fit (user 2026-10-15) */
@@ -5485,9 +5483,11 @@ const PVModules = {
                 K.showTable(TS); await C.wait(500);
                 await K.autoMerge(C, [TA, TB], TS);
                 [TA, TB].forEach(T => T.fade()); plus.classList.add("pv-gone");
-                await TS.move(Math.max(30, Math.min(910 - TS.W, 470 - TS.W / 2)) - TS.x, L.tableY - TS.y, 700);
+                /* centred under the equation's a + b (the +, midway between the two cards) - not a fixed 470: wide tables
+                   push the cards right of it and the sum table stood 20px left of them (P2 40 + 30, review 2026-10-30) */
+                await TS.move(Math.max(30, Math.min(910 - TS.W, (L.cxL + L.cxR) / 2 - TS.W / 2)) - TS.x, L.tableY - TS.y, 700);
                 eqs.forEach(e => e.classList.remove("pv-hide")); P.hide(false); }
-              await C.cue("hint_a", [[0.35, ()=> K.sweep(TS.rods, 120)]]); await C.cue("hint_b", [[0.1, ()=> K.sweep(TS.cubes, 90)]]);
+              await C.cue("hint_a", [[0.33, ()=> K.sweep(TS.rods, 120)], [0.66, ()=> K.sweep(TS.cubes, 90)]]);
               return;
             }
             P.guideKeys();   // the decks' WA3: the right digit keys light in sequence (no hand, no line)
@@ -5498,7 +5498,7 @@ const PVModules = {
   MENTAL_MCQ: {
     /* deck pages 11-12 (S02: 12-13) - "सही जोड़ चुनिए।": only "a + b = ?" and three answers - the child adds in their head.
        The help is the page's own ladder (data.hints, one step per wrong tap):
-         "digits"  - the tens digits light, then the ones digits, with their VO (h_lead, h_tens, h_ones, h_end)
+         "digits"  - the tens digits light, then the ones digits, with their VO (h_lead, h_digits, h_end)
          "tables"  - the equation moves up, the two tables come in, built block by block (h_tables)
          "merge"   - the answers hide; the blocks move into a third table (the ten made if needed); the sum table takes
                      the centre; the answers come back (h_merge)
@@ -5510,7 +5510,7 @@ const PVModules = {
       state.ownsAudio = true; state.locked = false; setNavActive(false); $("navBtn").style.display = "none"; setSwMood("point"); pvReplay(C);
       const A = pvSplit(d.a), B = pvSplit(d.b), sum = d.a + d.b, S = pvSplit(sum), tMax = Math.max(A.t, B.t, 3);
       const PP = null;                                                        // (no practice castle - user 2026-10-23 "remove these castles"; was PVPlay.mount(sc, slide))
-      const E = K.equation(sc, d.a, d.b, L.cx, 282, L.eqH); E.el.classList.add("big");   // (where the subtraction lesson's (MTG2A01_L04) MENTAL_SUB has it - user 2026-10-27; was 170 to leave room for the castle)
+      const E = K.equation(sc, d.a, d.b, L.cx, 240, L.eqH); E.el.classList.add("big");   // (42px higher than the subtraction lesson's MENTAL_SUB (282): more room between it and the answers - review 2026-10-28)
       let TA = null, TB = null, TS = null, plus = null, merged = false;
       const optTop = { solo: 452 };                                           // (as MTG2A01_L04's MENTAL_SUB, its Y0 - user 2026-10-27; was 345)
       /* with the help tables: question, tables and answers one even GAP apart (user 2026-10-23 - the answers used to drop to
@@ -5548,9 +5548,10 @@ const PVModules = {
             const step = d.hints[Math.min(n, d.hints.length) - 1];
             if(step === "digits"){
               await C.say("h_lead");
-              await C.cue("h_tens", [[0, ()=>{ K.lightDigit(E.a, "t"); K.lightDigit(E.b, "t"); }]]);
-              K.lightDigit(E.a, "t", false); K.lightDigit(E.b, "t", false);
-              await C.cue("h_ones", [[0, ()=>{ K.lightDigit(E.a, "o"); K.lightDigit(E.b, "o"); }]]);
+              /* one clip for both since the VO of 2026-10-29 ("2 दहाई और 1 दहाई जोड़िए, 0 इकाई और 5 इकाई जोड़िए"): the
+                 tens digits light at its start, the ones digits at its second half (.54, measured from the VO) */
+              await C.cue("h_digits", [[0, ()=>{ K.lightDigit(E.a, "t"); K.lightDigit(E.b, "t"); }],
+                                       [0.54, ()=>{ K.lightDigit(E.a, "t", false); K.lightDigit(E.b, "t", false); K.lightDigit(E.a, "o"); K.lightDigit(E.b, "o"); }]]);
               K.lightDigit(E.a, "o", false); K.lightDigit(E.b, "o", false);
               if(C.has("h_end")) await C.say("h_end");
             } else if(step === "tables"){ await tables(M); await C.say("h_tables"); }
@@ -6402,35 +6403,29 @@ const ASSET_SIZES = {
   "assets/voiceover/vo_g1_ask.ogg": 7894,
   "assets/voiceover/vo_g1_correct.ogg": 21382,
   "assets/voiceover/vo_g1_great.ogg": 5808,
-  "assets/voiceover/vo_g1_hint_a.ogg": 12315,
-  "assets/voiceover/vo_g1_hint_b.ogg": 8021,
+  "assets/voiceover/vo_g1_hint_a.ogg": 31911,
   "assets/voiceover/vo_g1_prompt.ogg": 11448,
   "assets/voiceover/vo_g1_try_again.ogg": 13485,
   "assets/voiceover/vo_g2_correct.ogg": 18040,
-  "assets/voiceover/vo_g2_hint_a.ogg": 13221,
-  "assets/voiceover/vo_g2_hint_b.ogg": 9566,
+  "assets/voiceover/vo_g2_hint_a.ogg": 32595,
   "assets/voiceover/vo_g2_prompt.ogg": 10716,
   "assets/voiceover/vo_g3_correct.ogg": 22679,
-  "assets/voiceover/vo_g3_hint_a.ogg": 14288,
-  "assets/voiceover/vo_g3_hint_b.ogg": 7702,
+  "assets/voiceover/vo_g3_hint_a.ogg": 29768,
   "assets/voiceover/vo_g3_prompt.ogg": 10217,
-  "assets/voiceover/vo_landing.ogg": 23954,
+  "assets/voiceover/vo_landing.ogg": 34976,
   "assets/voiceover/vo_p1_correct.ogg": 18201,
-  "assets/voiceover/vo_p1_hint_a.ogg": 14760,
+  "assets/voiceover/vo_p1_hint_a.ogg": 31604,
   "assets/voiceover/vo_p1_prompt.ogg": 18531,
   "assets/voiceover/vo_p1_try_again.ogg": 14408,
   "assets/voiceover/vo_p2_correct.ogg": 19010,
-  "assets/voiceover/vo_p2_hint_a.ogg": 13512,
-  "assets/voiceover/vo_p2_hint_b.ogg": 8109,
+  "assets/voiceover/vo_p2_hint_a.ogg": 33056,
   "assets/voiceover/vo_p2_prompt.ogg": 16977,
   "assets/voiceover/vo_p3_correct.ogg": 18424,
-  "assets/voiceover/vo_p3_h_lead.ogg": 6616,
-  "assets/voiceover/vo_p3_h_ones.ogg": 12182,
-  "assets/voiceover/vo_p3_h_tens.ogg": 12559,
+  "assets/voiceover/vo_p3_h_digits.ogg": 37848,
+  "assets/voiceover/vo_p3_h_lead.ogg": 12946,
   "assets/voiceover/vo_p3_prompt.ogg": 6645,
   "assets/voiceover/vo_p4_correct.ogg": 19658,
-  "assets/voiceover/vo_p4_h_ones.ogg": 12723,
-  "assets/voiceover/vo_p4_h_tens.ogg": 12573,
+  "assets/voiceover/vo_p4_h_digits.ogg": 41016,
   "assets/voiceover/vo_pt_guided.wav": 144044,
   "assets/voiceover/vo_pt_practice.wav": 124844,
   "assets/voiceover/vo_pt_tutorial.wav": 218924,
@@ -6445,7 +6440,6 @@ const ASSET_SIZES = {
   "assets/voiceover/vo_t2_b_ones.ogg": 13021,
   "assets/voiceover/vo_t2_b_tens.ogg": 12172,
   "assets/voiceover/vo_t2_done.ogg": 19280,
-  "assets/voiceover/vo_t2_head.ogg": 12539,
   "assets/voiceover/vo_t2_intro.ogg": 17587,
   "assets/voiceover/vo_t2_merge.ogg": 14382,
   "assets/voiceover/vo_t2_ones.ogg": 9946,
@@ -6461,7 +6455,7 @@ const ASSET_SIZES = {
   "assets/voiceover/vo_t4_head.ogg": 10478,
   "assets/voiceover/vo_t5_a_build.ogg": 13621,
   "assets/voiceover/vo_t5_a_digits.ogg": 16716,
-  "assets/voiceover/vo_t5_b_build.ogg": 11989,
+  "assets/voiceover/vo_t5_b_build.ogg": 20950,
   "assets/voiceover/vo_t5_b_digits.ogg": 16016,
   "assets/voiceover/vo_t5_done.ogg": 19722,
   "assets/voiceover/vo_t5_intro.ogg": 18069,
