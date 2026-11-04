@@ -54,29 +54,36 @@
    "vo_g1_ask": "assets/voiceover/vo_g1_ask.ogg",
    "vo_g1_correct": "assets/voiceover/vo_g1_correct.ogg",
    "vo_g1_great": "assets/voiceover/vo_g1_great.ogg",
+   "vo_g1_hint_CA": "assets/voiceover/vo_g1_hint_CA.ogg",
    "vo_g1_hint_a": "assets/voiceover/vo_g1_hint_a.ogg",
    "vo_g1_prompt": "assets/voiceover/vo_g1_prompt.ogg",
    "vo_g1_try_again": "assets/voiceover/vo_g1_try_again.ogg",
    "vo_g2_correct": "assets/voiceover/vo_g2_correct.ogg",
+   "vo_g2_hint_CA": "assets/voiceover/vo_g2_hint_CA.ogg",
    "vo_g2_hint_a": "assets/voiceover/vo_g2_hint_a.ogg",
    "vo_g2_prompt": "assets/voiceover/vo_g2_prompt.ogg",
    "vo_g3_correct": "assets/voiceover/vo_g3_correct.ogg",
+   "vo_g3_hint_CA": "assets/voiceover/vo_g3_hint_CA.ogg",
    "vo_g3_hint_a": "assets/voiceover/vo_g3_hint_a.ogg",
    "vo_g3_prompt": "assets/voiceover/vo_g3_prompt.ogg",
    "vo_landing": "assets/voiceover/vo_landing.ogg",
    "vo_p1_correct": "assets/voiceover/vo_p1_correct.ogg",
+   "vo_p1_hint_CA": "assets/voiceover/vo_p1_hint_CA.ogg",
    "vo_p1_hint_a": "assets/voiceover/vo_p1_hint_a.ogg",
    "vo_p1_prompt": "assets/voiceover/vo_p1_prompt.ogg",
    "vo_p1_try_again": "assets/voiceover/vo_p1_try_again.ogg",
    "vo_p2_correct": "assets/voiceover/vo_p2_correct.ogg",
+   "vo_p2_hint_CA": "assets/voiceover/vo_p2_hint_CA.ogg",
    "vo_p2_hint_a": "assets/voiceover/vo_p2_hint_a.ogg",
    "vo_p2_prompt": "assets/voiceover/vo_p2_prompt.ogg",
    "vo_p3_correct": "assets/voiceover/vo_p3_correct.ogg",
    "vo_p3_h_digits": "assets/voiceover/vo_p3_h_digits.ogg",
    "vo_p3_h_lead": "assets/voiceover/vo_p3_h_lead.ogg",
+   "vo_p3_hint_CA": "assets/voiceover/vo_p3_hint_CA.ogg",
    "vo_p3_prompt": "assets/voiceover/vo_p3_prompt.ogg",
    "vo_p4_correct": "assets/voiceover/vo_p4_correct.ogg",
    "vo_p4_h_digits": "assets/voiceover/vo_p4_h_digits.ogg",
+   "vo_p4_hint_CA": "assets/voiceover/vo_p4_hint_CA.ogg",
    "vo_pt_guided": "assets/voiceover/vo_pt_guided.wav",
    "vo_pt_practice": "assets/voiceover/vo_pt_practice.wav",
    "vo_pt_tutorial": "assets/voiceover/vo_pt_tutorial.wav",
@@ -185,9 +192,21 @@
     ],
     "auto": true,
     "sum_at": 0.746,
-    "num_at": [
-     0.08,
-     0.267
+    "intro_at": [
+     0.605,
+     0.701
+    ],
+    "digits_at": [
+     [
+      0.078,
+      0.333,
+      0.705
+     ],
+     [
+      0.269,
+      0.498,
+      0.767
+     ]
     ]
    }
   },
@@ -203,7 +222,6 @@
    },
    "data": {
     "mode": "sum",
-    "sum_at": 0.67,
     "a": 23,
     "b": 12,
     "people": [
@@ -220,16 +238,13 @@
       "kabir"
      ]
     },
-    "signs": {
-     "plus": [
-      "eq",
-      0.257
-     ],
-     "eq": [
-      "eq",
-      0.49
-     ]
-    }
+    "eq_at": [
+     0.051,
+     0.227,
+     0.409,
+     0.616,
+     0.831
+    ]
    }
   },
   {
@@ -296,9 +311,21 @@
      "child"
     ],
     "sum_at": 0.753,
-    "num_at": [
-     0.064,
-     0.067
+    "intro_at": [
+     0.591,
+     0.689
+    ],
+    "digits_at": [
+     [
+      0.066,
+      0.377,
+      0.707
+     ],
+     [
+      0.067,
+      0.349,
+      0.702
+     ]
     ]
    }
   },
@@ -314,7 +341,6 @@
    },
    "data": {
     "mode": "sum",
-    "sum_at": 0.68,
     "a": 34,
     "b": 52,
     "people": [
@@ -328,16 +354,13 @@
     "total": {
      "who": "tara"
     },
-    "signs": {
-     "plus": [
-      "eq",
-      0.321
-     ],
-     "eq": [
-      "eq",
-      0.538
-     ]
-    }
+    "eq_at": [
+     0.048,
+     0.234,
+     0.418,
+     0.625,
+     0.831
+    ]
    }
   },
   {
@@ -352,7 +375,8 @@
     "ask": "vo_g1_ask",
     "correct": "vo_g1_correct",
     "try_again": "vo_g1_try_again",
-    "hint_a": "vo_g1_hint_a"
+    "hint_a": "vo_g1_hint_a",
+    "hint_ca": "vo_g1_hint_CA"
    },
    "data": {
     "a": 43,
@@ -383,7 +407,8 @@
     "ask": "vo_g1_ask",
     "correct": "vo_g2_correct",
     "try_again": "vo_g1_try_again",
-    "hint_a": "vo_g2_hint_a"
+    "hint_a": "vo_g2_hint_a",
+    "hint_ca": "vo_g2_hint_CA"
    },
    "data": {
     "a": 30,
@@ -414,7 +439,8 @@
     "ask": "vo_g1_ask",
     "correct": "vo_g3_correct",
     "try_again": "vo_g1_try_again",
-    "hint_a": "vo_g3_hint_a"
+    "hint_a": "vo_g3_hint_a",
+    "hint_ca": "vo_g3_hint_CA"
    },
    "data": {
     "a": 62,
@@ -443,7 +469,8 @@
     "prompt": "vo_p1_prompt",
     "correct": "vo_p1_correct",
     "try_again": "vo_p1_try_again",
-    "hint_a": "vo_p1_hint_a"
+    "hint_a": "vo_p1_hint_a",
+    "hint_ca": "vo_p1_hint_CA"
    },
    "data": {
     "a": 32,
@@ -467,7 +494,8 @@
     "prompt": "vo_p2_prompt",
     "correct": "vo_p2_correct",
     "try_again": "vo_p1_try_again",
-    "hint_a": "vo_p2_hint_a"
+    "hint_a": "vo_p2_hint_a",
+    "hint_ca": "vo_p2_hint_CA"
    },
    "data": {
     "a": 40,
@@ -493,7 +521,8 @@
     "h_lead": "vo_p3_h_lead",
     "h_digits": "vo_p3_h_digits",
     "h_end": "vo_g1_ask",
-    "h_tables": "vo_g1_try_again"
+    "h_tables": "vo_g1_try_again",
+    "hint_ca": "vo_p3_hint_CA"
    },
    "data": {
     "a": 20,
@@ -529,7 +558,8 @@
     "h_lead": "vo_p3_h_lead",
     "h_digits": "vo_p4_h_digits",
     "h_end": "vo_g1_ask",
-    "h_tables": "vo_g1_try_again"
+    "h_tables": "vo_g1_try_again",
+    "hint_ca": "vo_p4_hint_CA"
    },
    "data": {
     "a": 14,
