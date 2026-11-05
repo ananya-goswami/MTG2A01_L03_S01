@@ -117,6 +117,8 @@
    "vo_t5_b_digits": "assets/voiceover/vo_t5_b_digits.ogg",
    "vo_t5_done": "assets/voiceover/vo_t5_done.ogg",
    "vo_t5_intro": "assets/voiceover/vo_t5_intro.ogg",
+   "vo_t5_tens": "assets/voiceover/vo_t5_tens.ogg",
+   "vo_t5_ones": "assets/voiceover/vo_t5_ones.ogg",
    "vo_t5_ones_sum": "assets/voiceover/vo_t5_ones_sum.ogg",
    "vo_t5_tens_sum": "assets/voiceover/vo_t5_tens_sum.ogg",
    "vo_t5_total": "assets/voiceover/vo_t5_total.ogg",
@@ -188,9 +190,10 @@
     "b": 12,
     "build": [
      "swifty",
-     "swifty"
+     "child"
     ],
-    "auto": true,
+    "guide": true,
+    "across": { "o": "swifty", "t": "child" },
     "sum_at": 0.746,
     "intro_at": [
      0.605,
@@ -296,9 +299,9 @@
     "b_digits": "vo_t5_b_digits",
     "b_build": "vo_t5_b_build",
     "merge": "vo_t2_merge",
-    "ones": "vo_t2_ones",
+    "ones": "vo_t5_ones",
     "ones_sum": "vo_t5_ones_sum",
-    "tens": "vo_t2_tens",
+    "tens": "vo_t5_tens",
     "tens_sum": "vo_t5_tens_sum",
     "total": "vo_t5_total",
     "done": "vo_t5_done"
@@ -379,6 +382,7 @@
     "hint_ca": "vo_g1_hint_CA"
    },
    "data": {
+    "no_head": true,
     "a": 43,
     "b": 24,
     "options": [
@@ -411,6 +415,7 @@
     "hint_ca": "vo_g2_hint_CA"
    },
    "data": {
+    "no_head": true,
     "a": 30,
     "b": 25,
     "options": [
@@ -443,6 +448,7 @@
     "hint_ca": "vo_g3_hint_CA"
    },
    "data": {
+    "no_head": true,
     "a": 62,
     "b": 20,
     "options": [
