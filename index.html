@@ -1753,6 +1753,10 @@ body.is-start .sg-sky{
 /* [speaker grey] QA checklist 2026-10-27 (MTG2A04's QA 2026-10-23 BUG_01, replacing review 2026-10-05's "never disabled"): every
    speaker - title screen, header, tutorial card - greyed out and untappable while a voiceover plays (app.js speakersBusy) */
 body.vo-speaking .sg-vo,body.vo-speaking .audio-chip,body.vo-speaking .tut-audio{filter:grayscale(1) opacity(.5);pointer-events:none;cursor:default;}
+/* (user 2026-11-09: "in this transition screen I still can see in the end that the background sound button gets enabled") while a phase
+   gate is up (body.gating: from its first frame until the next screen is in) every speaker behind it stays grey and untappable - it
+   used to go live as Swiftie's line ended (300ms after it) while she was still on the gate, and before the line began */
+body.gating .sg-vo,body.gating .audio-chip,body.gating .tut-audio{filter:grayscale(1) opacity(.5);pointer-events:none;cursor:default;}
 /* [vo-lock] review 2026-11-04 ("all options and other interactive elements should remain disabled during VO playback and
    become tappable only when the child is expected to interact"; MTG2A04's [vo-lock]): a clear layer over everything the game
    shows takes every tap while a voiceover speaks and through Swiftie's whole turn (VoLock, holdTurn). The phase card is
@@ -2698,6 +2702,7 @@ body.vo-lock .dev-nav{z-index:150001;}
     "guide": true,
     "across": { "o": "swifty", "t": "child" },
     "sum_at": 0.746,
+    "done_at": [0.353, 0.599, 0.504, 0.825, 0.738],
     "intro_at": [
      0.605,
      0.701
@@ -2817,6 +2822,7 @@ body.vo-lock .dev-nav{z-index:150001;}
      "child"
     ],
     "sum_at": 0.753,
+    "done_at": [0.312, 0.584, 0.488, 0.82, 0.736],
     "intro_at": [
      0.591,
      0.689
@@ -4167,9 +4173,9 @@ const PVK = (function(){
   /* (user 2026-11-05, after several rejected tones: "cubes and दहाई sfx should be the same ... animated cartoon style ... take inspiration
      from children's games" - then "what do you think is best, apply that overall") a block set down plays sfx_block: a candy-match
      style pop - a juicy pop, a rising bloop and a little sparkle (made for these games - not any game's own sound). The same for
-     cubes, rods and the number keys; each block landing in a run a step higher (C-major pentatonic: 1, 9/8, 5/4, 3/2, 5/3, 2), the run
-     starting over after a pause. Played from one decoded buffer (instant, any pitch); the old procedural bloop if it cannot load. */
-  let _kn = 0, _knT = 0, _kBuf = null, _kLoad = null;
+     cubes, rods and the number keys; (until 2026-11-09 - see knock) each block landing in a run a step higher (C-major pentatonic: 1, 9/8,
+     5/4, 3/2, 5/3, 2), the run starting over after a pause. Played from one decoded buffer (instant); the old procedural bloop if it cannot load. */
+  let _kBuf = null, _kLoad = null;
   const kLoad = ()=>{ const c = typeof _ac === "function" && _ac(); if(!c || _kLoad) return _kLoad;
     _kLoad = fetch(SFX_DIR + "sfx_block." + AUDIO_EXT).then(r => r.arrayBuffer()).then(b => new Promise((ok, no)=> c.decodeAudioData(b, ok, no))).then(buf => _kBuf = buf).catch(()=>{ _kBuf = null; });
     return _kLoad; };
@@ -4179,12 +4185,18 @@ const PVK = (function(){
       o.type = "sine"; o.frequency.setValueAtTime(f * m * .82, t); o.frequency.exponentialRampToValueAtTime(f * m, t + .045);
       gn.gain.setValueAtTime(.0001, t); gn.gain.exponentialRampToValueAtTime(v, t + .012); gn.gain.exponentialRampToValueAtTime(.0001, t + d);
       o.connect(gn).connect(lp); o.start(t); o.stop(t + d + .03); }); };
+  /* (SME review 2026-11-09: "when multiple blocks are tapped or added consecutively, the SFX gradually ... changes in pitch, becoming
+     thinner and less consistent. Please ensure the SFX maintains a consistent pitch, speed, and quality throughout") no more run up the
+     pentatonic: that played the clip faster (playbackRate up to 2x) - higher, shorter and thinner with each block. Every block now plays
+     sfx_block exactly as recorded - the same pitch, speed and length every time */
   const knock = ()=>{ const c = typeof _ac === "function" && _ac(); if(!c) return;
-    const now = performance.now(); if(now - _knT > 1100) _kn = 0; _knT = now;
-    const STEP = [1, 1.125, 1.25, 1.5, 1.667, 2], r = STEP[_kn++ % STEP.length];
-    if(!_kBuf){ kLoad(); kSynth(523.25 * r); return; }
-    const src = c.createBufferSource(), g = c.createGain(); src.buffer = _kBuf; src.playbackRate.value = r; g.gain.value = .7;
+    if(!_kBuf){ kLoad(); kSynth(523.25); return; }
+    const src = c.createBufferSource(), g = c.createGain(); src.buffer = _kBuf; g.gain.value = .7;
     src.connect(g).connect(c.destination); src.start(); };
+  /* (SME review 2026-11-09, the guided pages: "when the blocks for both numbers appear automatically ... a bubble/pop SFX should play")
+     each block popping into its table plays the block pop; blocks coming in together (both tables fill on the same beat) sound once */
+  let _fAt = -1e9;
+  const fillPop = ()=>{ const now = performance.now(); if(now - _fAt < 60) return; _fAt = now; knock(); };
   setTimeout(()=>{ try{ kLoad(); tLoad(); }catch(e){} }, 1500);        // (decoded early, so the first block already has it)
   /* (user 2026-11-05: "I want an sfx for the tables appearing on the screen" ... "no need for a bubble sfx, any relatable table-appearing
      sfx will be fine") a table slides into view with the game's own soft whoosh (sfx_whoosh - the landing's), never like a block's pop.
@@ -4384,7 +4396,7 @@ const PVK = (function(){
     setXY(e, cx, y); return e;
   }
 
-  return { reduce, px, wait, ROD, CUBE, FIT, dashBox, kNow, add, setXY, xy, knock, tableSfx, pop, enter, ADD_STEP, show, shake, repulse, softGlow, scene, ctx, run, block, glide, follow, shift,
+  return { reduce, px, wait, ROD, CUBE, FIT, dashBox, kNow, add, setXY, xy, knock, fillPop, tableSfx, pop, enter, ADD_STEP, show, shake, repulse, softGlow, scene, ctx, run, block, glide, follow, shift,
            hand, centre, numHTML, numCard, lightDigit, equation, settle, person };
 })();
 
@@ -4483,9 +4495,10 @@ Object.assign(PVK, (function(){
     T.addBlock = kind =>{ const list = T.list(kind), p = T.slot(kind, list.length, list.length + 1);
       const b = K.block(sc, kind, p.x, p.y, kind === "t" ? rH : G); list.push(b); enter(b); T.relayout(260, b); return b; };
     /* the number built "one by one" (deck: "Show the PV tables with the numbers built using blocks one by one") */
-    T.fill = async (n, step)=>{ const t = Math.floor(n / 10), u = n % 10;
-      for(let j = 0; j < t; j++){ T.addBlock("t"); await wait(step == null ? 110 : step); }
-      for(let i = 0; i < u; i++){ T.addBlock("o"); await wait(step == null ? 90 : step * .8); } };
+    /* sound: each block pops in with the block pop (K.fillPop - the guided pages, SME review 2026-11-09) */
+    T.fill = async (n, step, sound)=>{ const t = Math.floor(n / 10), u = n % 10;
+      for(let j = 0; j < t; j++){ T.addBlock("t"); if(sound) K.fillPop(); await wait(step == null ? 110 : step); }
+      for(let i = 0; i < u; i++){ T.addBlock("o"); if(sound) K.fillPop(); await wait(step == null ? 90 : step * .8); } };
     /* the column digits under the table (the place value written out): tens green, ones orange */
     T.digits = (tens, ones)=>{
       T.extra.filter(e => e.classList.contains("pv-dig")).forEach(e => e.remove());
@@ -4803,7 +4816,10 @@ Object.assign(PVK, (function(){
       const arm = ()=>{ clearTimeout(idleT); idleT = setTimeout(()=>{ if(!C.alive() || fin) return;
         if(pending){ arm(); return; }                                   // (placeRod runs its own idle ghost)
         if(ready()){ point(btn); arm(); return; }
-        const left = pool(); left.forEach(b => K.repulse(b, true)); if(left[0]) placeNudge(left[0]); arm(); }, idleMs()); };
+        /* (SME review 2026-11-09, G1: "the hand nudge ... should appear on the ones block of the number 43, as the child needs to add the
+           ones first") the hand on the first ones block still to go - the first number's, then the second's - and on a ten only once
+           every one is across; all of them keep pulsing */
+        const left = pool(), first = left.find(b => b._kind === "o") || left[0]; left.forEach(b => K.repulse(b, true)); if(first) placeNudge(first); arm(); }, idleMs()); };
       pool().forEach(b =>{
         b.classList.add("pv-tap", "pulse");
         b.onclick = ()=>{
@@ -4975,13 +4991,16 @@ Object.assign(PVK, (function(){
       const hush = ()=>{ if(reasking){ reasking = false; stopAudio(); } };   // a tap during the idle reminder cuts it short and counts
       const P = { ans, pad,
         hide(on){ if(!T) ans.classList.toggle("pv-hide", on !== false); pad.classList.toggle("pv-hide", on !== false || !open); },
-        guideKeys(){ guide = 0; Object.values(keys).forEach(b => b.classList.add("locked")); if(SPLIT) lightSplit(); else lightKey(); } };
-      /* the third layer, split: the box to fill lights (the इकाई first), then - the pad open - only its right digit key, the hand on each */
+        guideKeys(){ guide = 0; Object.values(keys).forEach(b => b.classList.add("locked")); if(SPLIT) lightSplit(); else { openPad(); lightKey(); } } };
+      /* the third layer, split (user 2026-11-09: "in the 3rd wrong attempt hand nudge is not required, directly show this highlighted number
+         in numpad"): no hand at all - the pad opens by itself at the box to fill (the इकाई first, then the दहाई) with only its right digit key
+         lit; a digit in, the pad comes back at the next box with that one's key lit. (It used to light the box with the hand on it, the
+         key only once the box was tapped.) */
       const lightSplit = quiet =>{ Object.values(keys).forEach(b =>{ b.classList.remove("hint-on"); b.classList.add("locked"); });
         ["t", "o"].forEach(p => cellOf(p).classList.remove("hint-on"));
         if(guide == null || over) return;
-        if(!open){ const c = cellOf(place); c.classList.add("hint-on"); K.softGlow(c); placeNudge(c, quiet); }
-        else { const b = keys[digitFor(place)]; b.classList.remove("locked"); b.classList.add("hint-on"); placeNudge(b, true); } };
+        if(!open){ if(P.openAt) P.openAt(place); return; }                // (openAt lights the key as the pad opens)
+        else { const b = keys[digitFor(place)]; b.classList.remove("locked"); b.classList.add("hint-on"); } };   // (SME review 2026-11-09: "on the third incorrect attempt ... the hand nudge is not required here. Simply highlight the correct digit" - the key lit, no hand on the pad)
       const padTo = p =>{ const c = K.centre(cellOf(p), sc), w = pad.offsetWidth || 332;
         setXY(pad, Math.max(20, Math.min(1333 - 20 - w, c.x - w / 2)), cfg.padAt ? cfg.padAt.y : pad._y); };
       const cuePlace = ()=>{ render(); const quiet = place === "t"; if(guide != null){ lightSplit(quiet); return; }   // (the chime only as an attempt starts, at the इकाई box)
@@ -4989,12 +5008,15 @@ Object.assign(PVK, (function(){
       /* the third layer: the right digit keys light one after the other, then the tick */
       const lightKey = ()=>{ Object.values(keys).forEach(b =>{ b.classList.remove("hint-on"); if(guide != null) b.classList.add("locked"); });   // (a key already used locks again - SME review)
         if(guide == null || guide > N) return; const b = guide < N ? keys[digits[guide]] : ok; b.classList.remove("locked"); b.classList.add("hint-on");
-        placeNudge(b); };   // the key lights (the decks' WA3 "highlight the correct digit buttons in sequence") + the hand on it (review 2026-11-04)
+        };   // the key lights (the decks' WA3 "highlight the correct digit buttons in sequence") - no hand on it (SME review 2026-11-09; it had one from 2026-11-04)
       /* the tick: dim until a digit is in, pulsing once the box holds the whole answer */
       const okState = ()=>{ ok.classList.toggle("off", !typed.length); ok.classList.toggle("pulse", typed.length >= N && !over && !busy); };
       const render = ()=>{
         if(SPLIT){ ["t", "o"].forEach(p =>{ const c = cellOf(p), dEl = c.querySelector(".pv-pl-d"), act = started && !over && !busy && place === p && vals[p] == null;
-            dEl.innerHTML = vals[p] != null ? vals[p] : (act ? '<span class="pv-caret">|</span>' : "");
+            /* (SME review 2026-11-09: "when the counter first appears, only the counter should pulsate. The cursor should become active only
+               after the child taps the counter and the number pad appears. Also, when the hand nudge is displayed, the cursor should not be
+               visible inside the counter") the box to fill pulses (.on); its "|" only while the pad is open - the hand is only ever on a closed box */
+            dEl.innerHTML = vals[p] != null ? vals[p] : (act && open ? '<span class="pv-caret">|</span>' : "");
             c.classList.toggle("on", act); c.classList.toggle("done", vals[p] != null); }); return; }
         const full = typed.length >= N || over;
         if(T && !open && !typed.length){ if(ok) okState(); return; }          // (the "?" stays until the pad opens)
@@ -5011,6 +5033,7 @@ Object.assign(PVK, (function(){
         const openAt = p =>{ if(open || over) return; open = true; stopNudge(); padTo(p); pad.classList.remove("pv-hide"); pop(pad); render(); if(guide != null) lightSplit(true); arm(); };
         ["t", "o"].forEach(p =>{ cellOf(p).onclick = ()=>{ if(!C.alive() || busy || over || !started || stepping || open || p !== place) return; hush(); openAt(p); }; });
         P.open = ()=>{};   // (user 2026-11-05: "only after the VO is complete the screen should be enabled") nothing lights during the line
+        P.openAt = openAt;   // (the third layer opens the pad itself)
       }
       async function check(){
         busy = true; clearTimeout(idleT); stopNudge(); okState(); holdTurn(true);   // [your turn] Swiftie's
@@ -5055,7 +5078,7 @@ Object.assign(PVK, (function(){
         typed.push(b._k); sfxTap(); render();   // (a key: its soft tick - the block pop is for blocks) pop(slot.querySelectorAll(".pv-ch")[typed.length - 1]);
         if(guide != null){ guide++; lightKey(); }
       }));
-      P.ready = ()=>{ holdTurn(false); if(SPLIT && !started && !over){ started = true; cuePlace(); } arm(); };   // (split: the "|" and the hand in the इकाई box only now, the VO over - user 2026-11-05)   // [your turn] the answer box waits for the child   // the box pulses its cursor; the hand only after 7s idle (user 2026-10-15: "comes too early")
+      P.ready = ()=>{ holdTurn(false); if(SPLIT && !started && !over){ started = true; cuePlace(); } arm(); };   // (split: the pulse and the hand in the इकाई box only now, the VO over - user 2026-11-05; its "|" once the pad is open - SME review 2026-11-09)   // [your turn] the answer box waits for the child   // the box pulses its cursor; the hand only after 7s idle (user 2026-10-15: "comes too early")
       cfg.onReady && cfg.onReady(P);
     });
   }
@@ -5131,7 +5154,11 @@ const PVModules = {
       { const mid = (L, R)=> (L._x + L.offsetWidth / 2 + R._x - R.offsetWidth / 2) / 2;
         K.setXY(plus, mid(cA, cB), EY + 2); K.setXY(eqs, mid(cB, cQ), EY + 2); }
       const asking = d.mode !== "sum";
-      const hideAll = list => list.forEach(e => e.classList.add("pv-hide"));
+      /* (SME review 2026-11-09: "after tapping the Play button, when the tutorial slide appears ... the blocks briefly flash on the screen
+         before disappearing") hidden AT ONCE, with no fade: a block fades (.pv-blk: opacity .3s) and the signs' centring above reads the
+         layout, so the new blocks stood at full opacity and faded out over the page's first frames (PV_DEMO's tables had the same -
+         its hideNow, review 2026-11-04). Their fade is back for when they come in */
+      const hideAll = list =>{ list.forEach(e =>{ e.style.transition = "none"; e.classList.add("pv-hide"); }); void sc.offsetWidth; list.forEach(e => e.style.transition = ""); };
       const showGroup = (p, g)=>{ K.show(p); g.all().forEach((b, i)=> setTimeout(()=> K.show(b), 120 + i * 55)); };
       if(asking) hideAll([pA, pB, ...gA.all(), ...gB.all(), cA, plus, cB, eqs, cQ]);
       else if(d.signs || d.eq_at) hideAll([plus, eqs, cQ]);   // (the sum page: its + and = come on "जोड़" / "बराबर" - user 2026-10-15)
@@ -5419,7 +5446,13 @@ const PVModules = {
         await C.cue("total", [[0.02, ()=> K.sweep(TS.rods, 90)], [0.3, ()=> K.sweep(TS.cubes, 70)],   // (no column digits under the table)
                               [d.sum_at || .75, ()=>{ qBox.classList.add("pv-hide"); K.show(tot); }]]);
         sfxCorrect(); setSwMood("happy");
-        await C.say("done");
+        /* (SME review 2026-11-09: during "a और b को जोड़ने पर c मिलता है" the numbers a, b and c "should be highlighted sequentially in sync
+           with the VO"; user 2026-11-09: "we are missing the highlights on the symbols + and = also" - the + on "जोड़ने", the = on "मिलता
+           है") data.done_at = where each part of the row is said in the closing clip, in the row's order [a, +, b, =, c] (fractions,
+           measured from the VO - said a, b, +, c, =): each lights on its word (the equation's .pv-say), the one before it unlit; all
+           unlit as the line ends */
+        { const at = d.done_at, parts = [cA, plus, cB, eqS, tot], say = i => parts.forEach((e, j)=> e.classList.toggle("pv-say", j === i));
+          await (at ? C.cue("done", at.map((f, i)=> [f, ()=> say(i)])).finally(()=> say(-1)) : C.say("done")); }
         try{ confettiCannon(); }catch(e){}                                // (the confetti last, after the closing line - user 2026-10-22)
         setNavActive(true);
       });
@@ -5507,7 +5540,7 @@ const PVModules = {
       /* a wide sum table (many tens) leaves no room on its right: the button then stands on its LEFT, never off the screen */
       if(btn && TS.x + TS.W + 44 + btn.offsetWidth > 1333 - 24 && TS.x - 44 - btn.offsetWidth >= 24) K.setXY(btn, TS.x - 44 - btn.offsetWidth, btn._y);
       K.run(C, async ()=>{
-        await Promise.all([TA.fill(d.a), TB.fill(d.b)]); await C.wait(250);
+        await Promise.all([TA.fill(d.a, null, true), TB.fill(d.b, null, true)]); await C.wait(250);   // (the blocks pop in with their sound - SME review 2026-11-09)
         await C.cue("prompt", [[0.3, ()=>{ K.showTable(TS); if(btn){ K.show(btn); btn.classList.add("off"); } }]]);
         await K.mergeChild(C, [TA, TB], TS, btn); C.guard();
         GameBus.emit("pv_merge_done", { slide_id: slide.id });
@@ -5531,7 +5564,7 @@ const PVModules = {
        the hand on it; a tap opens the number pad. WRONG: 1 wiggle + try_again; 2 wiggle + the blocks move to a third
        table by themselves (the number pad hidden meanwhile; with regrouping the ten is made too), the two tables go and
        the sum table takes the centre + the hint (its rods / cubes lit); 3 wiggle + the right digit keys light one
-       after the other, the hand on each. RIGHT: the answer flies into the "?". data: { a, b }.
+       after the other (no hand on the pad - SME review 2026-11-09). RIGHT: the answer flies into the "?". data: { a, b }.
        audio: prompt, correct, try_again, hint_a, keys. */
     mount(host, slide){
       /* the number pad's page sits a little higher than the other main pages - the equation and the tables up - so the
@@ -5601,7 +5634,7 @@ const PVModules = {
               await C.cue("hint_a", [[0.33, ()=> K.sweep(TS.rods, 120)], [0.66, ()=> K.sweep(TS.cubes, 90)]]);
               return;
             }
-            P.guideKeys(); await C.say("hint_ca");   // the decks' WA3: the right digit keys light in sequence, the hand on each + "a और b का जोड़ c है" (review 2026-11-04)
+            P.guideKeys(); await C.say("hint_ca");   // the decks' WA3: the right digit keys light in sequence (no hand on the pad - SME review 2026-11-09) + "a और b का जोड़ c है" (review 2026-11-04)
           } });
       });
     }
@@ -5819,15 +5852,18 @@ const PVLanding = {
          longer set along a textPath - that placed and turned every letter on its own, so the top bars met at little steps and the ा stood
          tilted up out of the line. The title is set as one straight line, shaped as the font draws it, and the whole line is then bent
          into the same arc (#sgBend: each column of it lifted by the arc's height there) - one smooth top bar, every letter upright */
+      /* (SME review 2026-11-09: "the title font appears upright, while the strokes ... are slightly tilted ... tilt the font slightly to
+         align with these strokes") the letters lean 7deg (.sgw-slant: skewX(-7) about the letters' middle), the brush streaks' own
+         angle - the paint is drawn in the slanted letters' space, so its streaks keep that 7deg on screen and run with the stems */
       ttl.innerHTML = '<svg class="sgw-arc" xmlns="' + NS + '" aria-hidden="true"><defs>' +
-        '<pattern id="sgPaint" patternUnits="userSpaceOnUse" width="21" height="80" patternTransform="rotate(7)">' +
+        '<pattern id="sgPaint" patternUnits="userSpaceOnUse" width="21" height="80">' +
         '<rect width="7" height="80" fill="#A93816"/><rect x="7" width="3" height="80" fill="#932C10"/>' +
         '<rect x="10" width="7" height="80" fill="#B4421C"/><rect x="17" width="4" height="80" fill="#9E3214"/></pattern>' +
         '<filter id="sgBend" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feImage result="m" preserveAspectRatio="none"/>' +
         '<feDisplacementMap in="SourceGraphic" in2="m" xChannelSelector="R" yChannelSelector="G"/></filter></defs>' +
-        '<g filter="url(#sgBend)"><text class="sgw-b" text-anchor="middle"></text>' +
+        '<g filter="url(#sgBend)"><g class="sgw-slant"><text class="sgw-b" text-anchor="middle"></text>' +
         '<text class="sgw-o" text-anchor="middle"></text>' +
-        '<text class="sgw-t" text-anchor="middle"></text></g></svg>' +
+        '<text class="sgw-t" text-anchor="middle"></text></g></g></svg>' +
         '<span class="sr-only"></span>';
       /* (user 2026-11-05, "this is still not coming inside the line" - ख्याओं) in Baloo 2 a vowel letter (अ ... औ) after another letter does
          not reach back to it: the top bar stops at the ा and starts again a little to the right, over the 3 of ओ. Each such vowel is set
@@ -5842,6 +5878,7 @@ const PVLanding = {
         svg.setAttribute("width", W.toFixed(0)); svg.setAttribute("height", H.toFixed(0));
         svg.querySelectorAll("text").forEach((e, i)=>{ e.setAttribute("x", (W / 2).toFixed(1)); e.setAttribute("y", (base + (i ? 0 : 4.8)).toFixed(1)); });   // (the dark ring dropped 4.8px)
         svg.querySelectorAll(".sgw-join").forEach(t => t.setAttribute("dx", (-.08 * fs).toFixed(1)));
+        svg.querySelector(".sgw-slant").setAttribute("transform", "translate(" + (Math.tan(7 * Math.PI / 180) * (base - .35 * fs)).toFixed(2) + " 0) skewX(-7)");   // (the slant about the letters' middle: the line stays centred)
         /* (user 2026-11-05: "i want a line above this also 3") Baloo 2 draws the 3 of अ / आ / ओ / औ with a round top of its own and a notch
            before the stem, where its top bar starts. A bar is laid over the 3 too, at the font's own top bar - its top .619em above the
            baseline, .117em thick (measured off Baloo 2 800's अ) - from the 3's left (.047em into the letter) across the notch to the stem
@@ -5864,7 +5901,49 @@ const PVLanding = {
         const f = svg.querySelector("#sgBend"), im = f.querySelector("feImage");
         [["x", 0], ["y", 0], ["width", W.toFixed(0)], ["height", H.toFixed(0)]].forEach(([k, v])=>{ f.setAttribute(k, v); im.setAttribute(k, v); });
         im.setAttribute("href", "data:image/svg+xml," + encodeURIComponent(map));
-        f.querySelector("feDisplacementMap").setAttribute("scale", (2 * sag).toFixed(1)); };
+        f.querySelector("feDisplacementMap").setAttribute("scale", (2 * sag).toFixed(1));
+        smooth(svg, W, H, sag); };
+      /* (user 2026-11-09: "I still can see there is a lot of roughness in the outline of the title ... make it smoother") the bend's
+         feDisplacementMap moves each column by whole pixels with no smoothing in between (Chrome samples it nearest-neighbour), so every
+         edge it bends - the white rim, the top bar, the slanted stems - came out in little stair-steps. The same picture is now bent on a
+         canvas instead: the title exactly as the SVG draws it (slant, rims, paint, top bars; its font embedded with it) at 2-4x the
+         screen's pixels, each 1px column moved up by the arc's height there with sub-pixel smoothing, shown at the title's size - the
+         same bend, smooth edges. If any of it cannot be drawn, the SVG with its filter stays on screen as before. */
+      let smTok = 0, fontURL = null;
+      const smooth = (svg, W, H, sag)=>{ const tok = ++smTok;
+        try{
+          const k = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--scale")) || 1;
+          const SS = Math.min(4, Math.max(2, Math.ceil((window.devicePixelRatio || 1) * k * 2))), Wd = Math.round(W * SS), Hd = Math.round(H * SS);
+          const wt = String(getComputedStyle(svg.querySelector("text")).fontWeight || "800"), file = "assets/fonts/baloo2-" + (/^[678]00$/.test(wt) ? wt : "800") + ".woff2";
+          if(!fontURL) fontURL = fetch(typeof Assets !== "undefined" && Assets.url ? Assets.url(file) : file).then(r => r.blob())
+            .then(b => new Promise((ok, no)=>{ const fr = new FileReader(); fr.onload = ()=> ok(fr.result); fr.onerror = no; fr.readAsDataURL(b); }));
+          fontURL.then(furl =>{ if(tok !== smTok) return;
+            /* the picture to bend: the title's SVG, its looks written onto it (the page's CSS does not reach an SVG drawn as an image) */
+            const c = svg.cloneNode(true), PROPS = ["fill", "stroke", "stroke-width", "stroke-linejoin", "stroke-linecap", "letter-spacing", "font-family", "font-size", "font-weight", "font-style"];
+            const src = svg.querySelectorAll("text, rect"), dst = c.querySelectorAll("text, rect");
+            src.forEach((e, i)=>{ if(!e.closest("g[filter]")) return; const cs = getComputedStyle(e);
+              dst[i].setAttribute("style", PROPS.map(p => p + ":" + cs.getPropertyValue(p).replace(/url\((["']?)[^#"')]*#/, "url($1#")).join(";")); });
+            c.querySelector("g[filter]").removeAttribute("filter"); const bf = c.querySelector("#sgBend"); if(bf) bf.remove();
+            c.removeAttribute("style"); c.removeAttribute("class");
+            c.setAttribute("viewBox", "0 0 " + W.toFixed(0) + " " + H.toFixed(0)); c.setAttribute("width", Wd); c.setAttribute("height", Hd);
+            const st = document.createElementNS(NS, "style");
+            st.textContent = "@font-face{font-family:'Baloo 2';font-style:normal;font-weight:" + wt + ";src:url(" + furl + ") format('woff2');}";
+            c.querySelector("defs").prepend(st);
+            const img = new Image();
+            img.onload = ()=>{ if(tok !== smTok) return;
+              const draw = ()=>{ if(tok !== smTok) return;
+                const a = document.createElement("canvas"); a.width = Wd; a.height = Hd; a.getContext("2d").drawImage(img, 0, 0, Wd, Hd);
+                let cv = ttl.querySelector("canvas.sgw-arc");
+                if(!cv){ cv = document.createElement("canvas"); cv.className = "sgw-arc"; cv.setAttribute("aria-hidden", "true"); svg.after(cv); }
+                cv.width = Wd; cv.height = Hd; cv.style.width = W.toFixed(0) + "px"; cv.style.height = H.toFixed(0) + "px";
+                const x = cv.getContext("2d"), s = sag * SS; x.imageSmoothingEnabled = true; x.imageSmoothingQuality = "high"; x.clearRect(0, 0, Wd, Hd);
+                for(let i = 0; i < Wd; i++){ const u = 2 * (i + .5) / Wd - 1; x.drawImage(a, i, 0, 1, Hd, i, -s * (1 - u * u), 1, Hd); }   // (the filter's bend: up by sag at the middle, 0 at the ends)
+                svg.style.cssText = "position:absolute;left:0;top:0;visibility:hidden;pointer-events:none"; };   // (kept, unseen, for the next fit to measure)
+              draw(); setTimeout(draw, 600); };   // (drawn again once the picture's own font has surely settled - some browsers draw an SVG image before its font)
+            img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(c));
+          }).catch(()=>{});
+        }catch(e){}
+      };
       fit(); if(document.fonts && document.fonts.ready) document.fonts.ready.then(fit); }
     const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
     const kids = [...root.querySelectorAll(".sgp-kid")], pcs = [...root.querySelectorAll(".sgp-pc")];
